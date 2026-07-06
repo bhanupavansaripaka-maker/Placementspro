@@ -1,0 +1,96 @@
+<nav class="navbar">
+
+    <div class="container navbar-container">
+
+        <!-- ================= Logo ================= -->
+
+        <a href="/" class="logo">
+
+            <i class="fa-solid fa-graduation-cap"></i>
+
+            <span>SkillForge</span>
+
+        </a>
+
+        <!-- ================= Navigation ================= -->
+
+        <ul class="nav-menu">
+
+            <li>
+                <a href="/"
+                   class="{% if active_page == 'home' %}active{% endif %}">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="/courses/"
+                   class="{% if active_page == 'courses' %}active{% endif %}">
+                    Courses
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    CRT
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Corporate Training
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Placements
+                </a>
+            </li>
+
+            <li>
+                <a href="/about"
+                   class="{% if active_page == 'about' %}active{% endif %}">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="/contact/"
+                   class="{% if active_page == 'contact' %}active{% endif %}">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+        <!-- ================= Buttons ================= -->
+
+        <div class="nav-buttons">
+
+            <a href="#" class="btn btn-outline">
+
+                Login
+
+            </a>
+
+            <a href="#" class="btn btn-primary">
+
+                Register
+
+            </a>
+
+        </div>
+
+        <!-- ================= Mobile Menu ================= -->
+
+        <button class="mobile-menu-btn"
+                aria-label="Toggle Navigation">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </div>
+
+</nav>

@@ -1,0 +1,75 @@
+<section class="courses-section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <h2>Popular Courses</h2>
+
+            <p>
+                Industry-ready programs designed by experienced professionals.
+            </p>
+
+        </div>
+
+        <div class="courses-grid">
+
+            {% for course in home_data.featured_courses %}
+
+            <div class="course-card">
+
+                <div class="course-header">
+
+                    <h3>{{ course.title }}</h3>
+
+                </div>
+
+                <div class="course-body">
+
+                    <p>
+
+                        {{ course.description }}
+
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            <strong>Duration:</strong>
+                            {{ course.duration }}
+                        </li>
+
+                        <li>
+                            <strong>Level:</strong>
+                            {{ course.level }}
+                        </li>
+
+                        <li>
+                            <strong>Price:</strong>
+                            {{ course.price }}
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="course-footer">
+
+                    <a href="/courses/"
+                       class="btn btn-primary">
+
+                        Learn More
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>

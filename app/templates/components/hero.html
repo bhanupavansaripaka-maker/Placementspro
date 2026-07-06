@@ -1,0 +1,86 @@
+<section class="hero">
+
+    <div class="container hero-container">
+
+        <div class="hero-content">
+
+            <span class="hero-tag">
+
+                {{ home_data.hero.tag }}
+
+            </span>
+
+            <h1>
+
+                {{ home_data.hero.title }}
+
+                <span>
+
+                    {{ home_data.hero.highlight }}
+
+                </span>
+
+            </h1>
+
+            <p>
+
+                {{ home_data.hero.description }}
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="/courses/" class="btn btn-primary">
+
+                    Explore Courses
+
+                </a>
+
+                <a href="/contact/" class="btn btn-outline">
+
+                    Contact Us
+
+                </a>
+
+            </div>
+
+            <div class="hero-features">
+
+                <div>
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    Live Training
+
+                </div>
+
+                <div>
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    Industry Projects
+
+                </div>
+
+                <div>
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    Placement Assistance
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img src="{{ url_for('static', path='images/hero.png') }}"
+                 alt="SkillForge Academy">
+
+        </div>
+
+    </div>
+
+</section>
