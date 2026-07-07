@@ -1,62 +1,54 @@
-<section class="courses-section">
+<section class="featured-courses section">
 
     <div class="container">
 
-        <div class="section-header">
+        <h2 class="section-title">
 
-            <h2>Popular Courses</h2>
+            Featured Courses
 
-            <p>
-                Industry-ready programs designed by experienced professionals.
-            </p>
+        </h2>
 
-        </div>
+        <p class="section-subtitle">
 
-        <div class="courses-grid">
+            Industry-focused programs designed to help students become job-ready.
 
-            {% for course in home_data.featured_courses %}
+        </p>
+
+        <div class="grid-4">
+
+            {% for course in courses %}
 
             <div class="course-card">
 
-                <div class="course-header">
+                <div class="course-content">
 
-                    <h3>{{ course.title }}</h3>
+                    <div class="course-icon">
 
-                </div>
+                        {{ course.icon }}
 
-                <div class="course-body">
+                    </div>
 
-                    <p>
+                    <h3 class="course-title">
+
+                        {{ course.title }}
+
+                    </h3>
+
+                    <p class="course-description">
 
                         {{ course.description }}
 
                     </p>
 
-                    <ul>
+                    <div class="course-meta">
 
-                        <li>
-                            <strong>Duration:</strong>
-                            {{ course.duration }}
-                        </li>
+                        <span>⏱ {{ course.duration }}</span>
 
-                        <li>
-                            <strong>Level:</strong>
-                            {{ course.level }}
-                        </li>
+                        <span>📈 {{ course.level }}</span>
 
-                        <li>
-                            <strong>Price:</strong>
-                            {{ course.price }}
-                        </li>
+                    </div>
 
-                    </ul>
-
-                </div>
-
-                <div class="course-footer">
-
-                    <a href="/courses/"
-                       class="btn btn-primary">
+                    <a href="/courses" class="btn btn-primary btn-block mt-2">
 
                         Learn More
 

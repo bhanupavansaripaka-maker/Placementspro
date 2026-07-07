@@ -1,7 +1,6 @@
 from fastapi import APIRouter, Request
 from fastapi.templating import Jinja2Templates
-
-from app.data.home import HOME_STATISTICS
+from app.data.home import HOME_STATISTICS, FEATURED_COURSES
 
 router = APIRouter()
 
@@ -16,6 +15,7 @@ def home(request: Request):
         {
             "request": request,
             "active_page": "home",
-            "statistics": HOME_STATISTICS
+            "statistics": HOME_STATISTICS,
+            "courses": FEATURED_COURSES
         }
     )

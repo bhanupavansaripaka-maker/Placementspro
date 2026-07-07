@@ -255,3 +255,170 @@
     margin:0;
 
 }
+/* ==========================================================
+   Featured Courses
+========================================================== */
+
+.featured-courses{
+
+    background:var(--background);
+
+    padding:100px 0;
+
+}
+
+
+/* ==========================================
+   Course Grid
+========================================== */
+
+.featured-courses .grid-4{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:30px;
+
+}
+
+
+/* ==========================================
+   Course Card
+========================================== */
+
+.course-card{
+
+    background:var(--white);
+
+    border-radius:var(--radius-lg);
+
+    box-shadow:var(--shadow-md);
+
+    transition:var(--transition);
+
+    overflow:hidden;
+
+    border:1px solid var(--border-light);
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.course-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:var(--shadow-xl);
+
+}
+
+
+/* ==========================================
+   Course Content
+========================================== */
+
+.course-content{
+
+    padding:30px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    height:100%;
+
+}
+
+
+/* ==========================================
+   Course Icon
+========================================== */
+
+.course-icon{
+
+    width:80px;
+
+    height:80px;
+
+    margin:0 auto 25px;
+
+    border-radius:50%;
+
+    background:var(--primary-light);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:40px;
+
+}
+
+
+/* ==========================================
+   Course Title
+========================================== */
+
+.course-title{
+
+    text-align:center;
+
+    font-size:24px;
+
+    color:var(--heading);
+
+    margin-bottom:15px;
+
+}
+
+
+/* ==========================================
+   Course Description
+========================================== */
+
+.course-description{
+
+    text-align:center;
+
+    color:var(--text-light);
+
+    margin-bottom:25px;
+
+    flex:1;
+
+}
+
+
+/* ==========================================
+   Course Meta
+========================================== */
+
+.course-meta{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:25px;
+
+    font-size:14px;
+
+    color:var(--text);
+
+}
+
+
+/* ==========================================
+   Button
+========================================== */
+
+.course-card .btn{
+
+    margin-top:auto;
+
+}
