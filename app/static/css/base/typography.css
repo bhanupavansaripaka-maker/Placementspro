@@ -1,0 +1,291 @@
+/* ==========================================================
+   SkillForge Academy
+   Typography
+   Version : 1.0
+   ========================================================== */
+
+/* ==========================================
+   Google Font
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+/* ==========================================
+   Headings
+========================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+
+    color:var(--secondary);
+
+    font-weight:var(--weight-bold);
+
+    line-height:1.2;
+
+    margin-bottom:16px;
+
+}
+
+h1{
+
+    font-size:var(--font-4xl);
+
+}
+
+h2{
+
+    font-size:var(--font-3xl);
+
+}
+
+h3{
+
+    font-size:var(--font-2xl);
+
+}
+
+h4{
+
+    font-size:26px;
+
+}
+
+h5{
+
+    font-size:22px;
+
+}
+
+h6{
+
+    font-size:18px;
+
+}
+
+
+/* ==========================================
+   Paragraph
+========================================== */
+
+p{
+
+    color:var(--text-light);
+
+    font-size:var(--font-md);
+
+    line-height:1.8;
+
+    margin-bottom:16px;
+
+}
+
+
+/* ==========================================
+   Strong
+========================================== */
+
+strong{
+
+    color:var(--secondary);
+
+    font-weight:700;
+
+}
+
+
+/* ==========================================
+   Small Text
+========================================== */
+
+small{
+
+    font-size:var(--font-sm);
+
+    color:var(--text-muted);
+
+}
+
+
+/* ==========================================
+   Text Utilities
+========================================== */
+
+.text-primary{
+
+    color:var(--primary);
+
+}
+
+.text-secondary{
+
+    color:var(--secondary);
+
+}
+
+.text-accent{
+
+    color:var(--accent);
+
+}
+
+.text-success{
+
+    color:var(--success);
+
+}
+
+.text-danger{
+
+    color:var(--danger);
+
+}
+
+.text-white{
+
+    color:var(--white);
+
+}
+
+.text-muted{
+
+    color:var(--text-muted);
+
+}
+
+.text-light{
+
+    color:var(--text-light);
+
+}
+
+
+/* ==========================================
+   Font Weight
+========================================== */
+
+.fw-light{
+
+    font-weight:300;
+
+}
+
+.fw-normal{
+
+    font-weight:400;
+
+}
+
+.fw-medium{
+
+    font-weight:500;
+
+}
+
+.fw-semibold{
+
+    font-weight:600;
+
+}
+
+.fw-bold{
+
+    font-weight:700;
+
+}
+
+
+/* ==========================================
+   Text Transform
+========================================== */
+
+.uppercase{
+
+    text-transform:uppercase;
+
+}
+
+.capitalize{
+
+    text-transform:capitalize;
+
+}
+
+.lowercase{
+
+    text-transform:lowercase;
+
+}
+
+
+/* ==========================================
+   Text Alignment
+========================================== */
+
+.text-center{
+
+    text-align:center;
+
+}
+
+.text-left{
+
+    text-align:left;
+
+}
+
+.text-right{
+
+    text-align:right;
+
+}
+
+
+/* ==========================================
+   Gradient Heading
+========================================== */
+
+.gradient-text{
+
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        var(--accent)
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+    background-clip:text;
+
+}
+
+
+/* ==========================================
+   Highlight
+========================================== */
+
+.highlight{
+
+    color:var(--primary);
+
+}
+
+
+/* ==========================================
+   Selection
+========================================== */
+
+::selection{
+
+    background:var(--primary);
+
+    color:white;
+
+}

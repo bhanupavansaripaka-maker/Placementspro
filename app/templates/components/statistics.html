@@ -1,40 +1,34 @@
-<section class="statistics">
+<section class="statistics section">
 
     <div class="container">
 
-        <div class="stats-grid">
+        <div class="grid-4">
+
+            {% for stat in statistics %}
 
             <div class="stat-card">
 
-                <h2>{{ home_data.stats.students }}</h2>
+                <div class="stat-icon">
 
-                <p>Students Trained</p>
+                    {{ stat.icon }}
 
-            </div>
+                </div>
 
-            <div class="stat-card">
+                <h2 class="stat-number">
 
-                <h2>{{ home_data.stats.courses }}</h2>
+                    {{ stat.number }}
 
-                <p>Professional Courses</p>
+                </h2>
 
-            </div>
+                <p class="stat-title">
 
-            <div class="stat-card">
+                    {{ stat.title }}
 
-                <h2>{{ home_data.stats.placements }}</h2>
-
-                <p>Placement Assistance</p>
+                </p>
 
             </div>
 
-            <div class="stat-card">
-
-                <h2>{{ home_data.stats.corporates }}</h2>
-
-                <p>Corporate Trainings</p>
-
-            </div>
+            {% endfor %}
 
         </div>
 

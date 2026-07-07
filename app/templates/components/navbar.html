@@ -2,17 +2,22 @@
 
     <div class="container navbar-container">
 
-        <!-- ================= Logo ================= -->
+        <!-- =========================
+             Logo
+        ========================== -->
 
         <a href="/" class="logo">
 
-            <i class="fa-solid fa-graduation-cap"></i>
-
-            <span>SkillForge</span>
+            <img
+                src="{{ url_for('static', path='images/logo/skillforge-logo.png') }}"
+                alt="SkillForge Academy"
+                class="logo-image">
 
         </a>
 
-        <!-- ================= Navigation ================= -->
+        <!-- =========================
+             Navigation Menu
+        ========================== -->
 
         <ul class="nav-menu">
 
@@ -24,27 +29,9 @@
             </li>
 
             <li>
-                <a href="/courses/"
+                <a href="/courses"
                    class="{% if active_page == 'courses' %}active{% endif %}">
                     Courses
-                </a>
-            </li>
-
-            <li>
-                <a href="#">
-                    CRT
-                </a>
-            </li>
-
-            <li>
-                <a href="#">
-                    Corporate Training
-                </a>
-            </li>
-
-            <li>
-                <a href="#">
-                    Placements
                 </a>
             </li>
 
@@ -56,7 +43,7 @@
             </li>
 
             <li>
-                <a href="/contact/"
+                <a href="/contact"
                    class="{% if active_page == 'contact' %}active{% endif %}">
                     Contact
                 </a>
@@ -64,7 +51,9 @@
 
         </ul>
 
-        <!-- ================= Buttons ================= -->
+        <!-- =========================
+             Right Buttons
+        ========================== -->
 
         <div class="nav-buttons">
 
@@ -76,18 +65,19 @@
 
             <a href="#" class="btn btn-primary">
 
-                Register
+                Enroll Now
 
             </a>
 
         </div>
 
-        <!-- ================= Mobile Menu ================= -->
+        <!-- =========================
+             Mobile Menu Button
+        ========================== -->
 
-        <button class="mobile-menu-btn"
-                aria-label="Toggle Navigation">
+        <button class="mobile-menu-btn">
 
-            <i class="fa-solid fa-bars"></i>
+            ☰
 
         </button>
 

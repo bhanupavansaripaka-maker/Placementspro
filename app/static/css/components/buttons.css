@@ -1,0 +1,204 @@
+/* ==========================================================
+   SkillForge Academy
+   Buttons
+   Version : 1.0
+   ========================================================== */
+
+
+/* ==========================================
+   Base Button
+========================================== */
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding:14px 30px;
+
+    border:none;
+
+    border-radius:var(--radius);
+
+    cursor:pointer;
+
+    font-size:var(--font-md);
+
+    font-weight:var(--weight-semibold);
+
+    text-decoration:none;
+
+    transition:var(--transition);
+
+}
+
+
+/* ==========================================
+   Primary Button
+========================================== */
+
+.btn-primary{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.btn-primary:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+
+/* ==========================================
+   Outline Button
+========================================== */
+
+.btn-outline{
+
+    background:transparent;
+
+    border:2px solid var(--primary);
+
+    color:var(--primary);
+
+}
+
+.btn-outline:hover{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+}
+
+
+/* ==========================================
+   Secondary Button
+========================================== */
+
+.btn-secondary{
+
+    background:var(--secondary);
+
+    color:var(--white);
+
+}
+
+.btn-secondary:hover{
+
+    background:var(--secondary-light);
+
+}
+
+
+/* ==========================================
+   Accent Button
+========================================== */
+
+.btn-accent{
+
+    background:var(--accent);
+
+    color:var(--white);
+
+}
+
+.btn-accent:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+/* ==========================================
+   Light Button
+========================================== */
+
+.btn-light{
+
+    background:var(--white);
+
+    color:var(--primary);
+
+}
+
+.btn-light:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+/* ==========================================
+   Full Width
+========================================== */
+
+.btn-block{
+
+    width:100%;
+
+}
+
+
+/* ==========================================
+   Small Button
+========================================== */
+
+.btn-sm{
+
+    padding:10px 20px;
+
+    font-size:14px;
+
+}
+
+
+/* ==========================================
+   Large Button
+========================================== */
+
+.btn-lg{
+
+    padding:18px 40px;
+
+    font-size:18px;
+
+}
+
+
+/* ==========================================
+   Rounded Button
+========================================== */
+
+.btn-round{
+
+    border-radius:999px;
+
+}
+
+
+/* ==========================================
+   Disabled
+========================================== */
+
+.btn:disabled{
+
+    opacity:.6;
+
+    cursor:not-allowed;
+
+}

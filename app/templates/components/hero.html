@@ -1,22 +1,30 @@
+<!-- ==========================================================
+     Hero Section
+=========================================================== -->
+
 <section class="hero">
 
     <div class="container hero-container">
 
+        <!-- ==========================
+             Left Content
+        =========================== -->
+
         <div class="hero-content">
 
-            <span class="hero-tag">
+            <span class="hero-badge">
 
-                {{ home_data.hero.tag }}
+                🚀 India's Emerging EdTech Platform
 
             </span>
 
             <h1>
 
-                {{ home_data.hero.title }}
+                Learn Today.
 
-                <span>
+                <span class="gradient-text">
 
-                    {{ home_data.hero.highlight }}
+                    Lead Tomorrow.
 
                 </span>
 
@@ -24,19 +32,22 @@
 
             <p>
 
-                {{ home_data.hero.description }}
+                Master Python, Java, Artificial Intelligence,
+                Full Stack Development, Data Science,
+                Cloud Computing and Campus Recruitment
+                Training with industry experts.
 
             </p>
 
             <div class="hero-buttons">
 
-                <a href="/courses/" class="btn btn-primary">
+                <a href="/courses" class="btn btn-primary btn-lg">
 
                     Explore Courses
 
                 </a>
 
-                <a href="/contact/" class="btn btn-outline">
+                <a href="/contact" class="btn btn-outline btn-lg">
 
                     Contact Us
 
@@ -48,25 +59,19 @@
 
                 <div>
 
-                    <i class="fa-solid fa-circle-check"></i>
-
-                    Live Training
+                    ✅ Live Interactive Classes
 
                 </div>
 
                 <div>
 
-                    <i class="fa-solid fa-circle-check"></i>
-
-                    Industry Projects
+                    ✅ Real Industry Projects
 
                 </div>
 
                 <div>
 
-                    <i class="fa-solid fa-circle-check"></i>
-
-                    Placement Assistance
+                    ✅ Placement Assistance
 
                 </div>
 
@@ -74,10 +79,15 @@
 
         </div>
 
+        <!-- ==========================
+             Hero Image
+        =========================== -->
+
         <div class="hero-image">
 
-            <img src="{{ url_for('static', path='images/hero.png') }}"
-                 alt="SkillForge Academy">
+            <img
+                src="{{ url_for('static', path='images/hero/hero.png') }}"
+                alt="SkillForge Academy">
 
         </div>
 

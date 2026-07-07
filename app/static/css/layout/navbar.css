@@ -1,0 +1,260 @@
+/* ==========================================================
+   SkillForge Academy
+   Navbar
+   Version : 1.0
+   ========================================================== */
+
+
+/* ==========================================
+   Navbar
+========================================== */
+
+.navbar{
+
+    position:sticky;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:var(--navbar-height);
+
+    background:var(--white);
+
+    box-shadow:var(--shadow-sm);
+
+    z-index:var(--z-navbar);
+
+}
+
+
+/* ==========================================
+   Navbar Container
+========================================== */
+
+.navbar-container{
+
+    height:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+/* ==========================================
+   Logo
+========================================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    text-decoration:none;
+
+}
+
+.logo-image{
+
+    height:75px;
+
+    width:auto;
+
+    transition:var(--transition);
+
+}
+
+.logo:hover .logo-image{
+
+    transform:scale(1.05);
+
+}
+
+
+/* ==========================================
+   Navigation
+========================================== */
+
+.nav-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:40px;
+
+}
+
+.nav-menu li{
+
+    list-style:none;
+
+}
+
+.nav-menu a{
+
+    position:relative;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    color:var(--secondary);
+
+    transition:var(--transition);
+
+}
+
+
+/* Hover */
+
+.nav-menu a:hover{
+
+    color:var(--primary);
+
+}
+
+
+/* Active */
+
+.nav-menu a.active{
+
+    color:var(--primary);
+
+}
+
+
+/* Underline Animation */
+
+.nav-menu a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--primary);
+
+    transition:var(--transition);
+
+}
+
+.nav-menu a:hover::after,
+
+.nav-menu a.active::after{
+
+    width:100%;
+
+}
+
+
+/* ==========================================
+   Right Buttons
+========================================== */
+
+.nav-buttons{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+
+/* ==========================================
+   Mobile Menu Button
+========================================== */
+
+.mobile-menu-btn{
+
+    display:none;
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    background:transparent;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    color:var(--secondary);
+
+}
+
+
+/* ==========================================
+   Sticky Effect
+========================================== */
+
+.navbar.scrolled{
+
+    box-shadow:var(--shadow-md);
+
+}
+
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media(max-width:992px){
+
+    .nav-menu{
+
+        display:none;
+
+    }
+
+    .nav-buttons{
+
+        display:none;
+
+    }
+
+    .mobile-menu-btn{
+
+        display:block;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .logo-image{
+
+        height:55px;
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .logo-image{
+
+        height:48px;
+
+    }
+
+}
