@@ -14,19 +14,25 @@ from app.config import (
     VERSION
 )
 
+# ==========================================================
 # Routers
+# ==========================================================
+
 from app.routers.home import router as home_router
 from app.routers.courses import router as courses_router
 from app.routers.contact import router as contact_router
 from app.routers.auth import router as auth_router
+from app.routers.student import router as student_router
 
+# ==========================================================
+# FastAPI Application
+# ==========================================================
 
 app = FastAPI(
     title=APP_NAME,
     description=APP_DESCRIPTION,
     version=VERSION
 )
-
 
 # ==========================================================
 # Static Files
@@ -38,16 +44,15 @@ app.mount(
     name="static"
 )
 
-
 # ==========================================================
-# Routers
+# Register Routers
 # ==========================================================
 
 app.include_router(home_router)
 app.include_router(courses_router)
 app.include_router(contact_router)
 app.include_router(auth_router)
-
+app.include_router(student_router)
 
 # ==========================================================
 # Health Check
@@ -56,7 +61,7 @@ app.include_router(auth_router)
 @app.get("/health", tags=["Health"])
 def health():
     """
-    Health check endpoint.
+    Health Check Endpoint
     """
 
     return {

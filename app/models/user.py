@@ -6,6 +6,7 @@ User Model
 """
 
 from datetime import datetime
+from sqlalchemy.orm import relationship
 
 from sqlalchemy import (
     String,
@@ -25,6 +26,11 @@ class User(Base):
     """
     User Model
     """
+    student = relationship(
+        "Student",
+        back_populates="user",
+        uselist=False
+    )
 
     __tablename__ = "users"
 
