@@ -75,3 +75,13 @@ def login_user(db: Session, email: str, password: str):
         "access_token": access_token,
         "token_type": "bearer"
     }
+def get_user_by_email(db: Session, email: str):
+    """
+    Get user by email.
+    """
+
+    return (
+        db.query(User)
+        .filter(User.email == email)
+        .first()
+    )

@@ -4,6 +4,11 @@ SkillForge Platform
 Authentication Router
 ==========================================================
 """
+
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.orm import Session
+
+from app.database import get_db
 from app.schemas.auth import (
     UserRegister,
     UserLogin
@@ -13,12 +18,9 @@ from app.services.auth_service import (
     register_user,
     login_user
 )
-from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.orm import Session
 
-from app.database import get_db
-from app.schemas.auth import UserRegister
-from app.services.auth_service import register_user
+from app.core.security import get_current_user
+from app.models.user import User
 
 router = APIRouter(
     prefix="/auth",
@@ -31,9 +33,6 @@ def register(
     user: UserRegister,
     db: Session = Depends(get_db)
 ):
-    """
-    Register a new user.
-    """
 
     try:
 
@@ -57,14 +56,12 @@ def register(
             detail=str(e)
         )
 
+
 @router.post("/login")
 def login(
     user: UserLogin,
     db: Session = Depends(get_db)
 ):
-    """
-    Login user.
-    """
 
     try:
 
@@ -80,3 +77,17 @@ def login(
             status_code=401,
             detail=str(e)
         )
+
+
+@router.get("/me")
+def me(
+    current_user: User = Depends(get_current_user)
+):
+
+    return {
+        "id": current_user.id,
+        "full_name": current_user.full_name,
+        "email": current_user.email,
+        "role": current_user.role,
+        "is_active": current_user.is_active
+    }
