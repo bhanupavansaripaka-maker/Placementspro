@@ -1,0 +1,99 @@
+<section class="upcoming-batches section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <h2 class="section-title">
+                Upcoming Batches
+            </h2>
+
+            <p class="section-subtitle">
+                Join our upcoming batches and begin your journey toward a successful IT career.
+            </p>
+
+        </div>
+
+        <div class="grid-2">
+
+            {% for batch in upcoming_batches %}
+
+            <div class="batch-card">
+
+                <div class="batch-icon">
+
+                    <i class="bi {{ batch.icon }}"></i>
+
+                </div>
+
+                <h3>{{ batch.course }}</h3>
+
+                <ul class="batch-details">
+
+                    <li>
+
+                        <i class="bi bi-calendar-event"></i>
+
+                        <strong>Start:</strong>
+
+                        {{ batch.start_date }}
+
+                    </li>
+
+                    <li>
+
+                        <i class="bi bi-clock"></i>
+
+                        <strong>Duration:</strong>
+
+                        {{ batch.duration }}
+
+                    </li>
+
+                    <li>
+
+                        <i class="bi bi-laptop"></i>
+
+                        <strong>Mode:</strong>
+
+                        {{ batch.mode }}
+
+                    </li>
+
+                    <li>
+
+                        <i class="bi bi-people"></i>
+
+                        <strong>Seats Left:</strong>
+
+                        {{ batch.seats_left }}
+
+                    </li>
+
+                    <li>
+
+                        <i class="bi bi-bar-chart"></i>
+
+                        <strong>Level:</strong>
+
+                        {{ batch.level }}
+
+                    </li>
+
+                </ul>
+
+                <a href="/contact" class="btn btn-primary">
+
+                    Enroll Now
+
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>

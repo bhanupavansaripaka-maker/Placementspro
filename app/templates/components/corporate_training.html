@@ -1,0 +1,59 @@
+<section class="corporate-training section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <h2 class="section-title">
+                Corporate & Institutional Training
+            </h2>
+
+            <p class="section-subtitle">
+                We help companies, colleges and institutions upskill their teams through customized technical training programs.
+            </p>
+
+        </div>
+
+        <div class="grid-3">
+
+            {% for training in corporate_trainings %}
+
+            <div class="training-card">
+
+                <div class="training-icon">
+
+                    <i class="bi {{ training.icon }}"></i>
+
+                </div>
+
+                <h3>
+
+                    {{ training.title }}
+
+                </h3>
+
+                <p>
+
+                    {{ training.description }}
+
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        <div class="training-action">
+
+            <a href="/contact" class="btn btn-primary">
+
+                Request Corporate Training
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>

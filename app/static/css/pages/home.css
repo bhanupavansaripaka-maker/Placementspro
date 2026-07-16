@@ -422,3 +422,991 @@
     margin-top:auto;
 
 }
+/* ==========================================================
+   Why Choose SkillForge
+========================================================== */
+
+.why-choose{
+
+    background:var(--white);
+
+    padding:var(--space-20) 0;
+
+}
+
+
+/* ==========================================
+   Grid
+========================================== */
+
+.why-choose .grid-3{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:35px;
+
+}
+
+
+/* ==========================================
+   Feature Card
+========================================== */
+
+.feature-card{
+
+    background:var(--white);
+
+    border-radius:var(--radius-lg);
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    border:1px solid var(--border-light);
+
+    box-shadow:var(--shadow-md);
+
+    transition:var(--transition);
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+
+/* ==========================================
+   Top Border Animation
+========================================== */
+
+.feature-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:4px;
+
+    background:var(--gradient-primary);
+
+    transform:scaleX(0);
+
+    transition:var(--transition);
+
+}
+
+.feature-card:hover::before{
+
+    transform:scaleX(1);
+
+}
+
+
+/* ==========================================
+   Hover
+========================================== */
+
+.feature-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:var(--shadow-xl);
+
+}
+
+
+/* ==========================================
+   Icon Circle
+========================================== */
+
+.feature-icon{
+
+    width:90px;
+
+    height:90px;
+
+    margin:0 auto 25px;
+
+    border-radius:50%;
+
+    background:var(--gradient-primary);
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:38px;
+
+    transition:var(--transition);
+
+}
+
+
+/* ==========================================
+   Icon Animation
+========================================== */
+
+.feature-card:hover .feature-icon{
+
+    transform:rotate(10deg) scale(1.1);
+
+}
+
+
+/* ==========================================
+   Heading
+========================================== */
+
+.feature-card h3{
+
+    color:var(--heading);
+
+    font-size:24px;
+
+    margin-bottom:18px;
+
+}
+
+
+/* ==========================================
+   Paragraph
+========================================== */
+
+.feature-card p{
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+    margin:0;
+
+}
+/* ==========================================================
+   Learning Journey
+========================================================== */
+
+.learning-journey{
+
+    background:var(--background);
+
+    padding:var(--space-20) 0;
+
+}
+
+
+/* ==========================================
+   Timeline
+========================================== */
+
+.journey-timeline{
+
+    position:relative;
+
+    max-width:900px;
+
+    margin:60px auto 0;
+
+}
+
+
+/* Vertical Line */
+
+.journey-timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:45px;
+
+    top:0;
+
+    width:4px;
+
+    height:100%;
+
+    background:var(--gradient-primary);
+
+    border-radius:10px;
+
+}
+
+
+/* ==========================================
+   Journey Item
+========================================== */
+
+.journey-item{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:30px;
+
+    margin-bottom:50px;
+
+    position:relative;
+
+}
+
+
+/* ==========================================
+   Step Number
+========================================== */
+
+.journey-step{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    background:var(--gradient-primary);
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:700;
+
+    font-size:18px;
+
+    z-index:2;
+
+}
+
+
+/* ==========================================
+   Icon
+========================================== */
+
+.journey-icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    background:var(--white);
+
+    box-shadow:var(--shadow-md);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+    color:var(--primary);
+
+    transition:var(--transition);
+
+}
+
+
+/* ==========================================
+   Content
+========================================== */
+
+.journey-content{
+
+    flex:1;
+
+    background:var(--white);
+
+    border-radius:var(--radius-lg);
+
+    padding:25px;
+
+    box-shadow:var(--shadow-md);
+
+    transition:var(--transition);
+
+}
+
+
+.journey-content h3{
+
+    color:var(--heading);
+
+    margin-bottom:12px;
+
+}
+
+
+.journey-content p{
+
+    color:var(--text-light);
+
+    margin:0;
+
+    line-height:1.8;
+
+}
+
+
+/* ==========================================
+   Hover
+========================================== */
+
+.journey-item:hover .journey-content{
+
+    transform:translateX(10px);
+
+    box-shadow:var(--shadow-xl);
+
+}
+
+
+.journey-item:hover .journey-icon{
+
+    transform:scale(1.1) rotate(8deg);
+
+}
+/* ==========================================================
+   Success Stories
+========================================================== */
+
+.success-stories{
+
+    background:var(--white);
+
+    padding:var(--space-20) 0;
+
+}
+
+
+/* ==========================================
+   Story Card
+========================================== */
+
+.story-card{
+
+    background:var(--white);
+
+    border-radius:var(--radius-lg);
+
+    padding:35px 30px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow-md);
+
+    border:1px solid var(--border-light);
+
+    transition:var(--transition);
+
+    height:100%;
+
+}
+
+.story-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:var(--shadow-xl);
+
+}
+
+
+/* ==========================================
+   Rating
+========================================== */
+
+.story-rating{
+
+    margin-bottom:20px;
+
+}
+
+.story-rating i{
+
+    color:#FFC107;
+
+    font-size:18px;
+
+    margin:0 2px;
+
+}
+
+
+/* ==========================================
+   Avatar
+========================================== */
+
+.story-avatar{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    margin:0 auto 20px;
+
+    background:var(--gradient-primary);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:50px;
+
+}
+
+
+/* ==========================================
+   Name
+========================================== */
+
+.story-name{
+
+    color:var(--heading);
+
+    margin-bottom:8px;
+
+}
+
+
+/* ==========================================
+   Course
+========================================== */
+
+.story-course{
+
+    color:var(--primary);
+
+    font-weight:600;
+
+    margin-bottom:15px;
+
+}
+
+
+/* ==========================================
+   Company Badge
+========================================== */
+
+.story-company{
+
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border-radius:30px;
+
+    background:#EEF5FF;
+
+    color:var(--primary);
+
+    margin-bottom:20px;
+
+}
+
+.story-company strong{
+
+    margin-left:5px;
+
+}
+
+
+/* ==========================================
+   Message
+========================================== */
+
+.story-message{
+
+    color:var(--text-light);
+
+    font-style:italic;
+
+    line-height:1.8;
+
+    margin-bottom:25px;
+
+}
+
+
+/* ==========================================
+   Verified Badge
+========================================== */
+
+.verified-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#198754;
+
+    font-weight:600;
+
+}
+
+.verified-badge i{
+
+    font-size:18px;
+
+}
+/* ==========================================================
+   Upcoming Batches
+========================================================== */
+
+.upcoming-batches{
+
+    background:var(--background);
+
+    padding:var(--space-20) 0;
+
+}
+
+
+/* ==========================================
+   Grid
+========================================== */
+
+.upcoming-batches .grid-2{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:35px;
+
+}
+
+
+/* ==========================================
+   Card
+========================================== */
+
+.batch-card{
+
+    background:var(--white);
+
+    border-radius:var(--radius-lg);
+
+    padding:35px;
+
+    border:1px solid var(--border-light);
+
+    box-shadow:var(--shadow-md);
+
+    transition:var(--transition);
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.batch-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:var(--shadow-xl);
+
+}
+
+
+/* ==========================================
+   Icon
+========================================== */
+
+.batch-icon{
+
+    width:75px;
+
+    height:75px;
+
+    border-radius:50%;
+
+    background:var(--gradient-primary);
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:34px;
+
+    margin-bottom:20px;
+
+}
+
+
+/* ==========================================
+   Title
+========================================== */
+
+.batch-card h3{
+
+    color:var(--heading);
+
+    margin-bottom:20px;
+
+}
+
+
+/* ==========================================
+   Details
+========================================== */
+
+.batch-details{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0 0 30px;
+
+}
+
+.batch-details li{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:15px;
+
+    color:var(--text);
+
+}
+
+.batch-details li i{
+
+    color:var(--primary);
+
+    font-size:18px;
+
+    width:22px;
+
+}
+
+
+/* ==========================================
+   Button
+========================================== */
+
+.batch-card .btn{
+
+    margin-top:auto;
+
+    width:100%;
+
+    text-align:center;
+
+}
+/* ==========================================================
+   Corporate Training
+========================================================== */
+
+.corporate-training{
+
+    background:var(--white);
+
+    padding:var(--space-20) 0;
+
+}
+
+.training-card{
+
+    background:var(--white);
+
+    border-radius:var(--radius-lg);
+
+    padding:35px 30px;
+
+    text-align:center;
+
+    border:1px solid var(--border-light);
+
+    box-shadow:var(--shadow-md);
+
+    transition:var(--transition);
+
+    height:100%;
+
+}
+
+.training-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:var(--shadow-xl);
+
+}
+
+.training-icon{
+
+    width:80px;
+
+    height:80px;
+
+    border-radius:50%;
+
+    margin:0 auto 20px;
+
+    background:var(--gradient-primary);
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:34px;
+
+}
+
+.training-card h3{
+
+    color:var(--heading);
+
+    margin-bottom:15px;
+
+}
+
+.training-card p{
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+}
+
+.training-action{
+
+    text-align:center;
+
+    margin-top:50px;
+
+}
+/* ==========================================================
+   Call To Action
+========================================================== */
+
+.call-to-action{
+
+    padding:100px 0;
+
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+
+    color:white;
+
+    text-align:center;
+
+}
+
+.cta-content{
+
+    max-width:850px;
+
+    margin:0 auto;
+
+}
+
+.cta-content h2{
+
+    color:white;
+
+    font-size:48px;
+
+    margin-bottom:20px;
+
+}
+
+.cta-content p{
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    opacity:.95;
+
+    margin-bottom:40px;
+
+}
+
+.cta-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.btn-light{
+
+    background:white;
+
+    color:var(--primary);
+
+    padding:15px 35px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    transition:var(--transition);
+
+}
+
+.btn-light:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-xl);
+
+}
+
+.btn-outline-light{
+
+    border:2px solid white;
+
+    color:white;
+
+    padding:15px 35px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    transition:var(--transition);
+
+}
+
+.btn-outline-light:hover{
+
+    background:white;
+
+    color:var(--primary);
+
+}
+/* ==========================================================
+   Footer
+========================================================== */
+
+.footer{
+
+    background:#0F172A;
+
+    color:#CBD5E1;
+
+    padding:70px 0 20px;
+
+}
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:40px;
+
+}
+
+.footer-column h3,
+.footer-column h4{
+
+    color:white;
+
+    margin-bottom:20px;
+
+}
+
+.footer-column p{
+
+    line-height:1.8;
+
+}
+
+.footer-column ul{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+
+}
+
+.footer-column li{
+
+    margin-bottom:12px;
+
+}
+
+.footer-column a{
+
+    color:#CBD5E1;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.footer-column a:hover{
+
+    color:white;
+
+}
+
+.footer hr{
+
+    margin:50px 0 25px;
+
+    border:none;
+
+    border-top:1px solid rgba(255,255,255,.15);
+
+}
+
+.footer-bottom{
+
+    text-align:center;
+
+}

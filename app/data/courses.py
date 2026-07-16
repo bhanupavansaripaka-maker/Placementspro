@@ -1,40 +1,40 @@
 """
-Hardcoded course data.
-
-Later this will be replaced with a database.
+==========================================================
+SkillForge Academy
+Courses Data
+==========================================================
 """
 
 courses = [
     {
-        "id": 1,
         "title": "Python Programming",
+        "description": "Master Python from fundamentals to advanced concepts with real-world projects.",
         "duration": "3 Months",
-        "level": "Beginner to Advanced",
-        "price": "₹9,999",
-        "description": "Learn Python from scratch with real-world projects."
+        "level": "Beginner",
+        "icon": "🐍"
     },
     {
-        "id": 2,
         "title": "Java Full Stack",
-        "duration": "6 Months",
+        "description": "Learn Java, Spring Boot, React and build enterprise applications.",
+        "duration": "4 Months",
         "level": "Intermediate",
-        "price": "₹29,999",
-        "description": "Become a Full Stack Java Developer."
+        "icon": "☕"
     },
     {
-        "id": 3,
-        "title": "Agentic AI",
-        "duration": "2 Months",
+        "title": "Artificial Intelligence",
+        "description": "Build intelligent applications using Machine Learning and Generative AI.",
+        "duration": "4 Months",
         "level": "Advanced",
-        "price": "₹19,999",
-        "description": "Build autonomous AI agents using modern frameworks."
+        "icon": "🤖"
     },
     {
-        "id": 4,
-        "title": "Data Science",
-        "duration": "5 Months",
+        "title": "Cloud Computing",
+        "description": "Master AWS fundamentals, DevOps and cloud deployment.",
+        "duration": "2 Months",
         "level": "Intermediate",
-        "price": "₹24,999",
-        "description": "Data analysis, machine learning and visualization."
+        "icon": "☁️"
     }
 ]
+
+# Homepage uses featured courses
+FEATURED_COURSES = courses

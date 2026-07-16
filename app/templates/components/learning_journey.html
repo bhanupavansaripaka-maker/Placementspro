@@ -1,0 +1,51 @@
+<section class="learning-journey section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <h2 class="section-title">
+                Your Learning Journey
+            </h2>
+
+            <p class="section-subtitle">
+                From enrollment to placement, we guide you through every step of your learning journey.
+            </p>
+
+        </div>
+
+        <div class="journey-timeline">
+
+            {% for step in learning_journey %}
+
+            <div class="journey-item">
+
+                <div class="journey-step">
+
+                    {{ step.step }}
+
+                </div>
+
+                <div class="journey-icon">
+
+                    <i class="bi {{ step.icon }}"></i>
+
+                </div>
+
+                <div class="journey-content">
+
+                    <h3>{{ step.title }}</h3>
+
+                    <p>{{ step.description }}</p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>

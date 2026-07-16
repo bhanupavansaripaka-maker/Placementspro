@@ -1,0 +1,82 @@
+<section class="success-stories section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <h2 class="section-title">
+                Success Stories
+            </h2>
+
+            <p class="section-subtitle">
+                Our students have transformed their careers through dedication,
+                expert mentorship, and real-world projects.
+            </p>
+
+        </div>
+
+        <div class="grid-3">
+
+            {% for student in success_stories %}
+
+            <div class="story-card">
+
+                <div class="story-rating">
+
+                    {% for i in range(student.rating) %}
+
+                        <i class="bi bi-star-fill"></i>
+
+                    {% endfor %}
+
+                </div>
+
+                <div class="story-avatar">
+
+                    <i class="bi bi-person-circle"></i>
+
+                </div>
+
+                <h3 class="story-name">
+
+                    {{ student.name }}
+
+                </h3>
+
+                <p class="story-course">
+
+                    {{ student.course }}
+
+                </p>
+
+                <div class="story-company">
+
+                    <span>Placed at</span>
+
+                    <strong>{{ student.company }}</strong>
+
+                </div>
+
+                <p class="story-message">
+
+                    "{{ student.message }}"
+
+                </p>
+
+                <div class="verified-badge">
+
+                    <i class="bi bi-patch-check-fill"></i>
+
+                    Verified Student
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>

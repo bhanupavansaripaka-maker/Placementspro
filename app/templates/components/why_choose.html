@@ -1,0 +1,50 @@
+<section class="why-choose section">
+
+    <div class="container">
+
+        <h2 class="section-title">
+
+            Why Choose SkillForge?
+
+        </h2>
+
+        <p class="section-subtitle">
+
+            We don't just teach technology.
+            We prepare you for your career.
+
+        </p>
+
+        <div class="grid-3">
+
+            {% for feature in why_choose %}
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="bi {{ feature.icon }}"></i>
+
+                </div>
+
+                <h3>
+
+                    {{ feature.title }}
+
+                </h3>
+
+                <p>
+
+                    {{ feature.description }}
+
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>

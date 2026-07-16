@@ -125,3 +125,135 @@
     }
 
 }
+/* ==========================================================
+   Why Choose Responsive
+========================================================== */
+
+@media(max-width:992px){
+
+    .why-choose .grid-3{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .why-choose .grid-3{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+/* ==========================================================
+   Learning Journey Responsive
+========================================================== */
+
+@media(max-width:768px){
+
+    .journey-timeline::before{
+
+        left:25px;
+
+    }
+
+    .journey-item{
+
+        gap:15px;
+
+    }
+
+    .journey-step{
+
+        width:40px;
+
+        height:40px;
+
+        font-size:14px;
+
+    }
+
+    .journey-icon{
+
+        width:55px;
+
+        height:55px;
+
+        font-size:24px;
+
+    }
+
+    .journey-content{
+
+        padding:20px;
+
+    }
+
+}
+/* ==========================================================
+   Success Stories Responsive
+========================================================== */
+
+@media(max-width:768px){
+
+    .story-card{
+
+        padding:25px;
+
+    }
+
+}
+/* ==========================================================
+   Upcoming Batches Responsive
+========================================================== */
+
+@media(max-width:992px){
+
+    .upcoming-batches .grid-2{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+/* ==========================================================
+   Corporate Training Responsive
+========================================================== */
+
+@media(max-width:768px){
+
+    .training-action{
+
+        margin-top:35px;
+
+    }
+
+}
+/* ==========================================================
+   Footer Responsive
+========================================================== */
+
+@media(max-width:992px){
+
+    .footer-grid{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
+
+}

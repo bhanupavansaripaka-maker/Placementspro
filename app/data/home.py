@@ -26,36 +26,71 @@ HOME_STATISTICS = [
     }
 ]
 # ==========================================================
-# Featured Courses
+# Why Choose SkillForge
 # ==========================================================
 
-FEATURED_COURSES = [
+WHY_CHOOSE = [
+
     {
-        "title": "Python Programming",
-        "description": "Master Python from fundamentals to advanced concepts with real-world projects.",
-        "duration": "3 Months",
-        "level": "Beginner",
-        "icon": "🐍"
+        "icon": "bi-mortarboard-fill",
+        "title": "Expert Trainers",
+        "description":
+            "Learn from experienced industry professionals with real project exposure."
     },
+
     {
-        "title": "Java Full Stack",
-        "description": "Learn Java, Spring Boot, React, REST APIs and build enterprise applications.",
-        "duration": "4 Months",
-        "level": "Intermediate",
-        "icon": "☕"
+        "icon": "bi-laptop",
+        "title": "Real-Time Projects",
+        "description":
+            "Build industry-ready applications instead of just completing theory."
     },
+
     {
-        "title": "Artificial Intelligence",
-        "description": "Build intelligent applications using Machine Learning and Generative AI.",
-        "duration": "4 Months",
-        "level": "Advanced",
-        "icon": "🤖"
+        "icon": "bi-briefcase-fill",
+        "title": "Placement Assistance",
+        "description":
+            "Resume preparation, mock interviews and placement guidance."
     },
+
     {
-        "title": "Cloud Computing",
-        "description": "Master AWS fundamentals, deployment, DevOps and cloud architecture.",
-        "duration": "2 Months",
-        "level": "Intermediate",
-        "icon": "☁️"
+        "icon": "bi-robot",
+        "title": "AI Interview Practice",
+        "description":
+            "Practice technical interviews using our AI Interview platform."
+    },
+
+    {
+        "icon": "bi-people-fill",
+        "title": "Lifetime Community",
+        "description":
+            "Stay connected with mentors and fellow learners after course completion."
+    },
+
+    {
+        "icon": "bi-award-fill",
+        "title": "Industry Curriculum",
+        "description":
+            "Curriculum designed according to current industry hiring requirements."
     }
+
 ]
+# ==========================================================
+# Call To Action
+# ==========================================================
+
+CALL_TO_ACTION = {
+
+    "title": "Ready to Launch Your Tech Career?",
+
+    "subtitle":
+        "Join SkillForge Academy and gain industry-ready skills through expert mentorship, real-world projects, AI interview practice and placement assistance.",
+
+    "primary_button": "Enroll Now",
+
+    "primary_link": "/contact",
+
+    "secondary_button": "Contact Us",
+
+    "secondary_link": "/contact"
+
+}
