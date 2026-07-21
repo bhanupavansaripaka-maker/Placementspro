@@ -1,10 +1,17 @@
 """
 ==========================================================
+SkillForge Platform
 Student Router
 ==========================================================
 """
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import (
+    APIRouter,
+    Depends,
+    HTTPException,
+    status
+)
+
 from sqlalchemy.orm import Session
 
 from app.database import get_db
@@ -17,7 +24,7 @@ from app.schemas.student import (
 )
 
 from app.services.student_service import (
-    create_student_profile,
+    update_student_profile,
     get_student_profile
 )
 
@@ -27,31 +34,52 @@ router = APIRouter(
 )
 
 
-@router.post("/profile")
-def create_profile(
+@router.put(
+    "/profile",
+    response_model=StudentProfileResponse
+)
+def update_profile(
     profile: StudentProfileCreate,
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
 ):
+    """
+    Create or update the logged-in student's profile.
+    """
 
     try:
 
-        student = create_student_profile(
+        student = update_student_profile(
             db,
             current_user,
             profile
         )
 
-        return {
-            "message": "Student profile created successfully.",
-            "student_id": student.id
-        }
+        return StudentProfileResponse(
+            id=student.id,
+            full_name=current_user.full_name,
+            email=current_user.email,
+            phone=student.phone,
+            college=student.college,
+            education=student.education,
+            branch=student.branch,
+            graduation_year=student.graduation_year,
+            profile_photo=student.profile_photo,
+            resume=student.resume
+        )
 
     except ValueError as e:
 
         raise HTTPException(
-            status_code=400,
+            status_code=status.HTTP_400_BAD_REQUEST,
             detail=str(e)
+        )
+
+    except Exception:
+
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Something went wrong."
         )
 
 
@@ -63,6 +91,9 @@ def read_profile(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
 ):
+    """
+    Get logged-in student's profile.
+    """
 
     student = get_student_profile(
         db,
@@ -72,18 +103,19 @@ def read_profile(
     if student is None:
 
         raise HTTPException(
-            status_code=404,
+            status_code=status.HTTP_404_NOT_FOUND,
             detail="Student profile not found."
         )
 
-    return {
-        "id": student.id,
-        "full_name": current_user.full_name,
-        "email": current_user.email,
-        "phone": student.phone,
-        "college": student.college,
-        "branch": student.branch,
-        "graduation_year": student.graduation_year,
-        "profile_photo": student.profile_photo,
-        "resume": student.resume
-    }
+    return StudentProfileResponse(
+        id=student.id,
+        full_name=current_user.full_name,
+        email=current_user.email,
+        phone=student.phone,
+        college=student.college,
+        education=student.education,
+        branch=student.branch,
+        graduation_year=student.graduation_year,
+        profile_photo=student.profile_photo,
+        resume=student.resume
+    )

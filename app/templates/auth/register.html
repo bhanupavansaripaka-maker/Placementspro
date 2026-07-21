@@ -1,0 +1,122 @@
+{% extends "layouts/auth_base.html" %}
+
+{% block title %}
+Register | SkillForge LMS
+{% endblock %}
+
+{% block content %}
+
+<div class="text-center mb-4">
+
+    <h2 class="fw-bold">
+        Create Account
+    </h2>
+
+    <p class="text-muted">
+        Start your learning journey today.
+    </p>
+
+</div>
+
+<form id="registerForm">
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Full Name
+        </label>
+
+        <input
+                type="text"
+                id="full_name"
+                class="form-control"
+                placeholder="Enter your full name"
+                required>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Email Address
+        </label>
+
+        <input
+                type="email"
+                id="email"
+                class="form-control"
+                placeholder="Enter your email"
+                required>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Password
+        </label>
+
+        <input
+                type="password"
+                id="password"
+                class="form-control"
+                placeholder="Minimum 8 characters"
+                required>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Confirm Password
+        </label>
+
+        <input
+                type="password"
+                id="confirm_password"
+                class="form-control"
+                placeholder="Re-enter password"
+                required>
+
+    </div>
+
+    <div class="d-grid">
+
+        <button
+                type="submit"
+                class="btn btn-primary btn-lg">
+
+            <i class="bi bi-person-plus-fill"></i>
+
+            Register
+
+        </button>
+
+    </div>
+
+</form>
+
+<div class="text-center mt-4">
+
+    <span class="text-muted">
+        Already have an account?
+    </span>
+
+    <a href="/login" class="fw-semibold">
+        Login
+    </a>
+
+</div>
+
+<div
+        id="message"
+        class="alert mt-4 d-none">
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{{ url_for('static', path='js/register.js') }}"></script>
+
+{% endblock %}

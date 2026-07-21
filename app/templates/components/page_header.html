@@ -1,0 +1,43 @@
+<section class="page-header">
+
+    <div class="container">
+
+        {% if badge %}
+        <span class="page-badge">
+            {{ badge }}
+        </span>
+        {% endif %}
+
+        <h1>{{ title }}</h1>
+
+        {% if subtitle %}
+        <p>
+            {{ subtitle }}
+        </p>
+        {% endif %}
+
+        {% if primary_button %}
+        <div class="page-actions">
+
+            <a href="{{ primary_button.link }}"
+               class="btn btn-primary">
+
+                {{ primary_button.text }}
+
+            </a>
+
+            {% if secondary_button %}
+            <a href="{{ secondary_button.link }}"
+               class="btn btn-outline">
+
+                {{ secondary_button.text }}
+
+            </a>
+            {% endif %}
+
+        </div>
+        {% endif %}
+
+    </div>
+
+</section>

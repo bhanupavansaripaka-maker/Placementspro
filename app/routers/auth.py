@@ -5,10 +5,11 @@ Authentication Router
 ==========================================================
 """
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 from app.database import get_db
+
 from app.schemas.auth import (
     UserRegister,
     UserLogin
@@ -22,17 +23,24 @@ from app.services.auth_service import (
 from app.core.security import get_current_user
 from app.models.user import User
 
+
 router = APIRouter(
     prefix="/auth",
     tags=["Authentication"]
 )
 
 
-@router.post("/register", status_code=201)
+@router.post(
+    "/register",
+    status_code=status.HTTP_201_CREATED
+)
 def register(
     user: UserRegister,
     db: Session = Depends(get_db)
 ):
+    """
+    Register a new user.
+    """
 
     try:
 
@@ -52,8 +60,15 @@ def register(
     except ValueError as e:
 
         raise HTTPException(
-            status_code=400,
+            status_code=status.HTTP_400_BAD_REQUEST,
             detail=str(e)
+        )
+
+    except Exception:
+
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Something went wrong."
         )
 
 
@@ -62,6 +77,9 @@ def login(
     user: UserLogin,
     db: Session = Depends(get_db)
 ):
+    """
+    Authenticate user.
+    """
 
     try:
 
@@ -74,8 +92,15 @@ def login(
     except ValueError as e:
 
         raise HTTPException(
-            status_code=401,
+            status_code=status.HTTP_401_UNAUTHORIZED,
             detail=str(e)
+        )
+
+    except Exception:
+
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Something went wrong."
         )
 
 
@@ -83,6 +108,9 @@ def login(
 def me(
     current_user: User = Depends(get_current_user)
 ):
+    """
+    Get currently logged-in user.
+    """
 
     return {
         "id": current_user.id,

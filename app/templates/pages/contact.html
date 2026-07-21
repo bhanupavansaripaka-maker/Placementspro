@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}
+Contact | SkillForge LMS
+{% endblock %}
+
+{% block content %}
+
+{% with
+
+title="Contact Us",
+
+badge="📞 Get In Touch",
+
+subtitle="We'd love to hear from you. Contact us for admissions, corporate training or career guidance."
+
+%}
+
+{% include "components/page_header.html" %}
+
+{% endwith %}
+
+<section class="contact-section">
+
+    <div class="container">
+
+        <div class="contact-grid">
+
+            <div class="contact-info">
+
+                <h2>Contact Information</h2>
+
+                <div class="contact-item">
+
+                    <h4>📞 Phone</h4>
+
+                    <p>+91 7093751243</p>
+
+                </div>
+
+                <div class="contact-item">
+
+                    <h4>📧 Email</h4>
+
+                    <p>bhanupavansaripaka@gmail.com</p>
+
+                </div>
+
+                <div class="contact-item">
+
+                    <h4>🕒 Working Hours</h4>
+
+                    <p>Monday - Saturday</p>
+
+                    <p>9:00 AM - 7:00 PM</p>
+
+                </div>
+
+            </div>
+
+            <div class="contact-form">
+
+                <form action="/contact/" method="post">
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Your Name"
+                        required
+                    >
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email Address"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        name="phone"
+                        placeholder="Phone Number"
+                        required
+                    >
+
+                    <textarea
+                        name="message"
+                        rows="6"
+                        placeholder="Write your message..."
+                        required
+                    ></textarea>
+
+                    <button
+                        class="btn btn-primary"
+                        type="submit">
+
+                        Send Message
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% include "components/call_to_action.html" %}
+
+{% endblock %}

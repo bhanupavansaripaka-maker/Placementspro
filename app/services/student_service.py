@@ -9,38 +9,41 @@ from sqlalchemy.orm import Session
 
 from app.models.student import Student
 from app.models.user import User
+
 from app.schemas.student import StudentProfileCreate
 
 
-def create_student_profile(
+def update_student_profile(
     db: Session,
     current_user: User,
     profile: StudentProfileCreate
 ):
     """
-    Create a student profile.
+    Create or update the logged-in student's profile.
     """
 
-    existing = (
+    student = (
         db.query(Student)
         .filter(Student.user_id == current_user.id)
         .first()
     )
 
-    if existing:
-        raise ValueError("Student profile already exists.")
+    # Safety check (normally the Student is created during registration)
+    if not student:
+        student = Student(
+            user_id=current_user.id
+        )
+        db.add(student)
 
-    student = Student(
-        user_id=current_user.id,
-        phone=profile.phone,
-        college=profile.college,
-        branch=profile.branch,
-        graduation_year=profile.graduation_year,
-        profile_photo=profile.profile_photo,
-        resume=profile.resume
-    )
+    # Update profile fields
+    student.phone = profile.phone
+    student.college = profile.college
+    student.education = profile.education
+    student.branch = profile.branch
+    student.graduation_year = profile.graduation_year
+    student.profile_photo = profile.profile_photo
+    student.resume = profile.resume
 
-    db.add(student)
     db.commit()
     db.refresh(student)
 

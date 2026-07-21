@@ -5,12 +5,9 @@ Student Model
 ==========================================================
 """
 
-from datetime import datetime
-
 from sqlalchemy import (
-    String,
     Integer,
-    DateTime,
+    String,
     ForeignKey
 )
 
@@ -25,12 +22,17 @@ from app.core.database import Base
 
 class Student(Base):
     """
-    Student Model
+    Student Profile Model
     """
 
     __tablename__ = "students"
 
+    # ==================================================
+    # Columns
+    # ==================================================
+
     id: Mapped[int] = mapped_column(
+        Integer,
         primary_key=True,
         index=True
     )
@@ -47,6 +49,11 @@ class Student(Base):
     )
 
     college: Mapped[str | None] = mapped_column(
+        String(150),
+        nullable=True
+    )
+
+    education: Mapped[str | None] = mapped_column(
         String(100),
         nullable=True
     )
@@ -71,18 +78,23 @@ class Student(Base):
         nullable=True
     )
 
-    created_at: Mapped[datetime] = mapped_column(
-        DateTime,
-        default=datetime.utcnow
-    )
-
-    updated_at: Mapped[datetime] = mapped_column(
-        DateTime,
-        default=datetime.utcnow,
-        onupdate=datetime.utcnow
-    )
+    # ==================================================
+    # Relationships
+    # ==================================================
 
     user = relationship(
         "User",
         back_populates="student"
     )
+
+    enrollments = relationship(
+        "Enrollment",
+        back_populates="student",
+        cascade="all, delete-orphan"
+    )
+
+    def __repr__(self):
+        return (
+            f"<Student(id={self.id}, "
+            f"user_id={self.user_id})>"
+        )

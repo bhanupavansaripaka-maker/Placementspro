@@ -5,34 +5,50 @@ Main Application
 ==========================================================
 """
 
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
-from app.config import (
-    APP_NAME,
-    APP_DESCRIPTION,
-    VERSION
+from app.core.init_db import init_db
+
+# ===========================
+# API Routers
+# ===========================
+
+from app.routers import (
+    auth,
+    student,
+    course,
+    enrollment,
+    web
 )
 
+
 # ==========================================================
-# Routers
+# Application Lifespan
 # ==========================================================
 
-from app.routers.home import router as home_router
-from app.routers.courses import router as courses_router
-from app.routers.contact import router as contact_router
-from app.routers.auth import router as auth_router
-from app.routers.student import router as student_router
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """
+    Initialize database on application startup.
+    """
+    init_db()
+    yield
+
 
 # ==========================================================
 # FastAPI Application
 # ==========================================================
 
 app = FastAPI(
-    title=APP_NAME,
-    description=APP_DESCRIPTION,
-    version=VERSION
+    title="SkillForge LMS API",
+    description="Learning Management System built with FastAPI",
+    version="1.0.0",
+    lifespan=lifespan
 )
+
 
 # ==========================================================
 # Static Files
@@ -44,15 +60,23 @@ app.mount(
     name="static"
 )
 
+
 # ==========================================================
-# Register Routers
+# API Routers
 # ==========================================================
 
-app.include_router(home_router)
-app.include_router(courses_router)
-app.include_router(contact_router)
-app.include_router(auth_router)
-app.include_router(student_router)
+app.include_router(auth.router)
+app.include_router(student.router)
+app.include_router(course.router)
+app.include_router(enrollment.router)
+
+
+# ==========================================================
+# Web Routes (HTML Pages)
+# ==========================================================
+
+app.include_router(web.router)
+
 
 # ==========================================================
 # Health Check
@@ -63,9 +87,7 @@ def health():
     """
     Health Check Endpoint
     """
-
     return {
-        "application": APP_NAME,
-        "version": VERSION,
-        "status": "Running"
+        "status": "success",
+        "message": "SkillForge LMS API is running."
     }

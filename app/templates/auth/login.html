@@ -1,0 +1,92 @@
+{% extends "layouts/auth_base.html" %}
+
+{% block title %}
+Login | SkillForge LMS
+{% endblock %}
+
+{% block content %}
+
+<div class="text-center mb-4">
+
+    <h2 class="fw-bold">
+        Welcome Back 👋
+    </h2>
+
+    <p class="text-muted">
+        Sign in to continue learning.
+    </p>
+
+</div>
+
+<form id="loginForm">
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Email Address
+        </label>
+
+        <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Enter your email"
+                required>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Password
+        </label>
+
+        <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="Enter your password"
+                required>
+
+    </div>
+
+    <div class="d-grid mt-4">
+
+        <button
+                type="submit"
+                class="btn btn-primary btn-lg">
+
+            <i class="bi bi-box-arrow-in-right"></i>
+
+            Login
+
+        </button>
+
+    </div>
+
+</form>
+
+<div class="text-center mt-4">
+
+    <span class="text-muted">
+        Don't have an account?
+    </span>
+
+    <a href="/register" class="fw-semibold">
+        Register
+    </a>
+
+</div>
+
+<div
+        id="message"
+        class="alert mt-4 d-none">
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{{ url_for('static', path='js/login.js') }}"></script>
+
+{% endblock %}

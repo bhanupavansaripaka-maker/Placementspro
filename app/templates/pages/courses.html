@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}
+Courses | SkillForge LMS
+{% endblock %}
+
+{% block content %}
+
+{% with
+
+title="Our Courses",
+
+badge="🚀 Industry Ready Programs",
+
+subtitle="Master the most in-demand technologies through practical learning, live projects and expert mentorship.",
+
+primary_button={
+"text":"Enroll Now",
+"link":"/contact/"
+},
+
+secondary_button={
+"text":"Explore Courses",
+"link":"#featured-courses"
+}
+
+%}
+
+{% include "components/page_header.html" %}
+
+{% endwith %}
+
+<section id="featured-courses">
+
+    {% include "components/featured_courses.html" %}
+
+</section>
+
+{% include "components/corporate_training.html" %}
+
+{% include "components/learning_journey.html" %}
+
+{% include "components/call_to_action.html" %}
+
+{% endblock %}

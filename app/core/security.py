@@ -9,9 +9,20 @@ from datetime import datetime, timedelta, UTC
 
 import jwt
 from jwt.exceptions import InvalidTokenError
+
 from passlib.context import CryptContext
-from fastapi import Depends, HTTPException
-from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+
+from fastapi import (
+    Depends,
+    HTTPException,
+    status
+)
+
+from fastapi.security import (
+    HTTPBearer,
+    HTTPAuthorizationCredentials
+)
+
 from sqlalchemy.orm import Session
 
 from app.config import (
@@ -43,6 +54,9 @@ security = HTTPBearer()
 # ==========================================================
 
 def hash_password(password: str) -> str:
+    """
+    Hash a plain text password.
+    """
     return pwd_context.hash(password)
 
 
@@ -50,7 +64,9 @@ def verify_password(
     plain_password: str,
     hashed_password: str
 ) -> bool:
-
+    """
+    Verify password against stored hash.
+    """
     return pwd_context.verify(
         plain_password,
         hashed_password
@@ -62,6 +78,9 @@ def verify_password(
 # ==========================================================
 
 def create_access_token(data: dict) -> str:
+    """
+    Create JWT access token.
+    """
 
     to_encode = data.copy()
 
@@ -79,21 +98,26 @@ def create_access_token(data: dict) -> str:
 
 
 def decode_access_token(token: str):
+    """
+    Decode JWT token.
+    """
 
     try:
 
-        payload = jwt.decode(
+        return jwt.decode(
             token,
             SECRET_KEY,
             algorithms=[ALGORITHM]
         )
 
-        return payload
-
     except InvalidTokenError:
 
         return None
 
+
+# ==========================================================
+# Current User Dependency
+# ==========================================================
 
 def get_current_user(
     credentials: HTTPAuthorizationCredentials = Depends(security),
@@ -112,16 +136,16 @@ def get_current_user(
     if payload is None:
 
         raise HTTPException(
-            status_code=401,
+            status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Invalid or expired token."
         )
 
     email = payload.get("sub")
 
-    if email is None:
+    if not email:
 
         raise HTTPException(
-            status_code=401,
+            status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Invalid token."
         )
 
@@ -134,8 +158,15 @@ def get_current_user(
     if user is None:
 
         raise HTTPException(
-            status_code=404,
+            status_code=status.HTTP_404_NOT_FOUND,
             detail="User not found."
+        )
+
+    if not user.is_active:
+
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="User account is inactive."
         )
 
     return user

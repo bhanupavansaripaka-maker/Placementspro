@@ -6,7 +6,6 @@ User Model
 """
 
 from datetime import datetime
-from sqlalchemy.orm import relationship
 
 from sqlalchemy import (
     String,
@@ -16,7 +15,8 @@ from sqlalchemy import (
 
 from sqlalchemy.orm import (
     Mapped,
-    mapped_column
+    mapped_column,
+    relationship
 )
 
 from app.core.database import Base
@@ -26,13 +26,12 @@ class User(Base):
     """
     User Model
     """
-    student = relationship(
-        "Student",
-        back_populates="user",
-        uselist=False
-    )
 
     __tablename__ = "users"
+
+    # -----------------------------
+    # Columns
+    # -----------------------------
 
     id: Mapped[int] = mapped_column(
         primary_key=True,
@@ -58,25 +57,43 @@ class User(Base):
 
     role: Mapped[str] = mapped_column(
         String(20),
-        default="student"
+        default="student",
+        nullable=False
     )
 
     is_active: Mapped[bool] = mapped_column(
         Boolean,
-        default=True
+        default=True,
+        nullable=False
     )
 
     created_at: Mapped[datetime] = mapped_column(
         DateTime,
-        default=datetime.utcnow
+        default=datetime.utcnow,
+        nullable=False
     )
 
     updated_at: Mapped[datetime] = mapped_column(
         DateTime,
         default=datetime.utcnow,
-        onupdate=datetime.utcnow
+        onupdate=datetime.utcnow,
+        nullable=False
+    )
+
+    # -----------------------------
+    # Relationships
+    # -----------------------------
+
+    student = relationship(
+        "Student",
+        back_populates="user",
+        uselist=False,
+        cascade="all, delete-orphan"
     )
 
     def __repr__(self):
-
-        return f"<User {self.email}>"
+        return (
+            f"<User(id={self.id}, "
+            f"email='{self.email}', "
+            f"role='{self.role}')>"
+        )

@@ -1,58 +1,89 @@
-<section class="featured-courses section">
+<section id="featured-courses" class="featured-courses">
 
     <div class="container">
 
-        <h2 class="section-title">
+        <div class="section-header">
 
-            Featured Courses
+            <span class="section-tag">
+                🚀 Popular Programs
+            </span>
 
-        </h2>
+            <h2>Choose Your Learning Path</h2>
 
-        <p class="section-subtitle">
+            <p>
+                Industry-oriented courses designed to make you job-ready.
+                Learn from experts with live projects and placement support.
+            </p>
 
-            Industry-focused programs designed to help students become job-ready.
+        </div>
 
-        </p>
+        <div class="course-grid">
 
-        <div class="grid-4">
+            {% for course in featured_courses %}
 
-            {% for course in courses %}
+            <div class="course-item">
 
-            <div class="course-card">
+                <div class="course-item-image">
 
-                <div class="course-content">
+                    <span class="course-category">
 
-                    <div class="course-icon">
+                        {{ course.category }}
 
-                        {{ course.icon }}
+                    </span>
 
-                    </div>
+                </div>
 
-                    <h3 class="course-title">
+                <div class="course-item-content">
+
+                    <h3>
 
                         {{ course.title }}
 
                     </h3>
 
-                    <p class="course-description">
+                    <p>
 
                         {{ course.description }}
 
                     </p>
 
-                    <div class="course-meta">
+                    <div class="course-item-meta">
 
-                        <span>⏱ {{ course.duration }}</span>
+                        <span>
+                            📚 {{ course.level|title }}
+                        </span>
 
-                        <span>📈 {{ course.level }}</span>
+                        <span>
+                            ⏱ {{ course.duration }} Hours
+                        </span>
 
                     </div>
 
-                    <a href="/courses" class="btn btn-primary btn-block mt-2">
+                    <div class="course-item-price">
 
-                        Learn More
+                        ₹{{ "{:,.0f}".format(course.price) }}
 
-                    </a>
+                    </div>
+
+                    <ul class="course-item-features">
+
+                        <li>✔ Live Projects</li>
+                        <li>✔ Placement Assistance</li>
+                        <li>✔ Mock Interviews</li>
+
+                    </ul>
+
+                    <div class="course-item-footer">
+
+                        <a
+                            href="/contact/"
+                            class="btn btn-primary">
+
+                            Enroll Now
+
+                        </a>
+
+                    </div>
 
                 </div>
 

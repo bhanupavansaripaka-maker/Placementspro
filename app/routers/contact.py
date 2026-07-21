@@ -1,9 +1,15 @@
-from fastapi import APIRouter
-from fastapi import Form
-from fastapi import Request
+"""
+==========================================================
+SkillForge Platform
+Contact Page Router
+==========================================================
+"""
 
+from fastapi import APIRouter, Form, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
+
+from app.services.home_service import get_home_page_data
 
 router = APIRouter(
     prefix="/contact",
@@ -15,27 +21,33 @@ templates = Jinja2Templates(directory="app/templates")
 
 @router.get("/", response_class=HTMLResponse)
 async def contact_page(request: Request):
+    """
+    Render Contact Page
+    """
+
+    data = get_home_page_data()
 
     return templates.TemplateResponse(
-        "contact.html",
+        "pages/contact.html",
         {
-                "request": request,
-                "title": "Contact",
-                "active_page": "contact"
-
+            "request": request,
+            "title": "Contact",
+            "active_page": "contact",
+            **data
         }
     )
 
 
 @router.post("/")
 async def submit_contact(
-
     name: str = Form(...),
     email: str = Form(...),
     phone: str = Form(...),
     message: str = Form(...)
-
 ):
+    """
+    Process Contact Form
+    """
 
     print("\n")
     print("=" * 60)

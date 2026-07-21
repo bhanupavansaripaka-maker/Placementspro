@@ -1,0 +1,449 @@
+/*
+==========================================================
+SkillForge LMS - Dashboard
+==========================================================
+*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f4f7fc;
+}
+
+/* =====================================
+Dashboard Layout
+===================================== */
+
+.dashboard-wrapper{
+    display:flex;
+    min-height:100vh;
+}
+
+.main-content{
+    flex:1;
+    margin-left:270px;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+}
+
+.content-area{
+    padding:30px;
+    flex:1;
+}
+
+/* =====================================
+Sidebar
+===================================== */
+
+.sidebar{
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    width:270px;
+
+    height:100vh;
+
+    background:#0f172a;
+
+    color:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    padding:25px 20px;
+
+}
+
+.sidebar-header{
+
+    margin-bottom:40px;
+
+}
+
+.logo{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.logo:hover{
+
+    color:white;
+
+}
+
+.logo i{
+
+    color:#3b82f6;
+
+}
+
+.sidebar-nav ul{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+
+}
+
+.sidebar-nav li{
+
+    margin-bottom:12px;
+
+}
+
+.sidebar-nav a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    text-decoration:none;
+
+    color:#cbd5e1;
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    transition:.3s;
+
+}
+
+.sidebar-nav a:hover{
+
+    background:#1e293b;
+
+    color:white;
+
+}
+
+.sidebar-nav a.active{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.sidebar-footer a{
+
+    color:#ef4444;
+
+    text-decoration:none;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-weight:600;
+
+}
+
+/* =====================================
+Top Navbar
+===================================== */
+
+.top-navbar{
+
+    height:80px;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 35px;
+
+    border-bottom:1px solid #e5e7eb;
+
+}
+
+.page-title{
+
+    font-size:24px;
+
+    font-weight:600;
+
+    color:#1e293b;
+
+    margin:0;
+
+}
+
+.navbar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+/* Search */
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    background:#f3f4f6;
+
+    border-radius:12px;
+
+    padding:10px 15px;
+
+    width:320px;
+
+}
+
+.search-box i{
+
+    color:#64748b;
+
+}
+
+.search-box input{
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    margin-left:10px;
+
+    width:100%;
+
+}
+
+/* Notification */
+
+.icon-btn{
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#f3f4f6;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.icon-btn:hover{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+/* User */
+
+.user-profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.user-profile img{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+}
+
+.user-name{
+
+    display:block;
+
+    font-weight:600;
+
+    color:#1e293b;
+
+}
+
+/* =====================================
+Dashboard Content
+===================================== */
+
+.dashboard-home{
+
+    padding:10px;
+
+}
+
+.dashboard-home h2{
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+.dashboard-home p{
+
+    color:#64748b;
+
+}
+/*====================================================
+Hero Section
+====================================================*/
+
+.hero-section{
+    margin-bottom:30px;
+}
+
+.hero-content{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+
+    border-radius:20px;
+
+    padding:45px;
+
+    color:white;
+
+    overflow:hidden;
+
+}
+
+.hero-left{
+
+    width:65%;
+
+}
+
+.hero-badge{
+
+    display:inline-block;
+
+    background:rgba(255,255,255,.2);
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    margin-bottom:20px;
+
+    font-size:14px;
+
+}
+
+.hero-left h1{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+.highlight{
+
+    color:#fde047;
+
+}
+
+.hero-left p{
+
+    font-size:18px;
+
+    opacity:.95;
+
+    margin-bottom:25px;
+
+    max-width:550px;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.hero-right{
+
+    width:30%;
+
+}
+
+.profile-card{
+
+    background:white;
+
+    color:#1e293b;
+
+    border-radius:16px;
+
+    padding:25px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+}
+
+.profile-card h5{
+
+    font-weight:600;
+
+}

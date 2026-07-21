@@ -1,42 +1,46 @@
-from fastapi import APIRouter, Request
+"""
+==========================================================
+SkillForge Platform
+Courses Page Router
+==========================================================
+"""
+
+from fastapi import APIRouter, Depends, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
+from sqlalchemy.orm import Session
 
-from app.data.courses import courses
+from app.database import get_db
 
-router = APIRouter(
-    prefix="/courses",
-    tags=["Courses"]
-)
+from app.services.home_service import get_home_page_data
+from app.services.course_service import get_active_courses
+
+router = APIRouter()
 
 templates = Jinja2Templates(directory="app/templates")
 
 
-@router.get("/", response_class=HTMLResponse)
-async def courses_page(request: Request):
+@router.get("/courses", response_class=HTMLResponse)
+def courses_page(
+    request: Request,
+    db: Session = Depends(get_db)
+):
     """
-    Display the Courses page.
+    Render Courses Page
     """
+
+    data = get_home_page_data()
+
+    courses = get_active_courses(db)
+
+    data["featured_courses"] = courses
 
     return templates.TemplateResponse(
         "pages/courses.html",
         {
             "request": request,
             "title": "Courses",
-            "courses": courses,
-            "active_page": "courses"
+            "active_page": "courses",
+            **data
         }
     )
-
-
-@router.get("/api")
-async def get_courses():
-    """
-    Return all available courses as JSON.
-    """
-
-    return {
-        "success": True,
-        "count": len(courses),
-        "data": courses
-    }
