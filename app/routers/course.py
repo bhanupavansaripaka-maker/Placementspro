@@ -21,16 +21,18 @@ from app.schemas.course import (
     CourseResponse
 )
 
-from app.services.course_service import (
-    create_course,
-    get_all_courses
-)
+from app.services.course_service import CourseService
+
 
 router = APIRouter(
     prefix="/api/courses",
     tags=["Course Management"]
 )
 
+
+# ==========================================================
+# Create Course
+# ==========================================================
 
 @router.post(
     "/",
@@ -47,7 +49,7 @@ def add_course(
 
     try:
 
-        return create_course(
+        return CourseService.create(
             db,
             course
         )
@@ -67,6 +69,10 @@ def add_course(
         )
 
 
+# ==========================================================
+# Get All Courses
+# ==========================================================
+
 @router.get(
     "/",
     response_model=list[CourseResponse]
@@ -75,7 +81,7 @@ def list_courses(
     db: Session = Depends(get_db)
 ):
     """
-    Get all active courses.
+    Get all courses.
     """
 
-    return get_all_courses(db)
+    return CourseService.get_all(db)

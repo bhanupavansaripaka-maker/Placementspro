@@ -5,7 +5,13 @@ Authentication Router
 ==========================================================
 """
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import (
+    APIRouter,
+    Depends,
+    HTTPException,
+    status
+)
+
 from sqlalchemy.orm import Session
 
 from app.database import get_db
@@ -15,12 +21,10 @@ from app.schemas.auth import (
     UserLogin
 )
 
-from app.services.auth_service import (
-    register_user,
-    login_user
-)
+from app.services.auth_service import AuthService
 
 from app.core.security import get_current_user
+
 from app.models.user import User
 
 
@@ -29,6 +33,10 @@ router = APIRouter(
     tags=["Authentication"]
 )
 
+
+# ==========================================================
+# Register
+# ==========================================================
 
 @router.post(
     "/register",
@@ -44,7 +52,10 @@ def register(
 
     try:
 
-        new_user = register_user(db, user)
+        new_user = AuthService.register(
+            db,
+            user
+        )
 
         return {
             "success": True,
@@ -72,6 +83,10 @@ def register(
         )
 
 
+# ==========================================================
+# Login
+# ==========================================================
+
 @router.post("/login")
 def login(
     user: UserLogin,
@@ -83,7 +98,7 @@ def login(
 
     try:
 
-        return login_user(
+        return AuthService.login(
             db,
             user.email,
             user.password
@@ -103,6 +118,10 @@ def login(
             detail="Something went wrong."
         )
 
+
+# ==========================================================
+# Current User
+# ==========================================================
 
 @router.get("/me")
 def me(

@@ -16,6 +16,7 @@ from sqlalchemy.orm import Session
 
 from app.database import get_db
 from app.core.security import get_current_user
+
 from app.models.user import User
 
 from app.schemas.student import (
@@ -23,16 +24,18 @@ from app.schemas.student import (
     StudentProfileResponse
 )
 
-from app.services.student_service import (
-    update_student_profile,
-    get_student_profile
-)
+from app.services.student_service import StudentService
+
 
 router = APIRouter(
     prefix="/students",
     tags=["Students"]
 )
 
+
+# ==========================================================
+# Update Student Profile
+# ==========================================================
 
 @router.put(
     "/profile",
@@ -49,7 +52,7 @@ def update_profile(
 
     try:
 
-        student = update_student_profile(
+        student = StudentService.update_profile(
             db,
             current_user,
             profile
@@ -83,6 +86,10 @@ def update_profile(
         )
 
 
+# ==========================================================
+# Get Student Profile
+# ==========================================================
+
 @router.get(
     "/profile",
     response_model=StudentProfileResponse
@@ -95,7 +102,7 @@ def read_profile(
     Get logged-in student's profile.
     """
 
-    student = get_student_profile(
+    student = StudentService.get_profile(
         db,
         current_user
     )

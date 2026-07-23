@@ -13,53 +13,64 @@ from app.models.user import User
 from app.schemas.student import StudentProfileCreate
 
 
-def update_student_profile(
-    db: Session,
-    current_user: User,
-    profile: StudentProfileCreate
-):
+class StudentService:
     """
-    Create or update the logged-in student's profile.
+    Student Service
     """
 
-    student = (
-        db.query(Student)
-        .filter(Student.user_id == current_user.id)
-        .first()
-    )
+    @staticmethod
+    def update_profile(
+        db: Session,
+        current_user: User,
+        profile: StudentProfileCreate
+    ):
+        """
+        Create or update the logged-in student's profile.
+        """
 
-    # Safety check (normally the Student is created during registration)
-    if not student:
-        student = Student(
-            user_id=current_user.id
+        student = (
+            db.query(Student)
+            .filter(Student.user_id == current_user.id)
+            .first()
         )
-        db.add(student)
 
-    # Update profile fields
-    student.phone = profile.phone
-    student.college = profile.college
-    student.education = profile.education
-    student.branch = profile.branch
-    student.graduation_year = profile.graduation_year
-    student.profile_photo = profile.profile_photo
-    student.resume = profile.resume
+        # Safety check
+        if not student:
 
-    db.commit()
-    db.refresh(student)
+            student = Student(
+                user_id=current_user.id
+            )
 
-    return student
+            db.add(student)
 
+        # ----------------------------------------
+        # Update Profile
+        # ----------------------------------------
 
-def get_student_profile(
-    db: Session,
-    current_user: User
-):
-    """
-    Get the logged-in student's profile.
-    """
+        student.phone = profile.phone
+        student.college = profile.college
+        student.education = profile.education
+        student.branch = profile.branch
+        student.graduation_year = profile.graduation_year
+        student.profile_photo = profile.profile_photo
+        student.resume = profile.resume
 
-    return (
-        db.query(Student)
-        .filter(Student.user_id == current_user.id)
-        .first()
-    )
+        db.commit()
+        db.refresh(student)
+
+        return student
+
+    @staticmethod
+    def get_profile(
+        db: Session,
+        current_user: User
+    ):
+        """
+        Get the logged-in student's profile.
+        """
+
+        return (
+            db.query(Student)
+            .filter(Student.user_id == current_user.id)
+            .first()
+        )
