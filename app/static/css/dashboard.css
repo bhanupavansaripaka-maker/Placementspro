@@ -41,16 +41,17 @@ Dashboard Layout
 Sidebar
 ===================================== */
 
+/* =====================================
+Sidebar
+===================================== */
+
 .sidebar{
 
     position:fixed;
-
     left:0;
-
     top:0;
 
     width:270px;
-
     height:100vh;
 
     background:#0f172a;
@@ -58,10 +59,7 @@ Sidebar
     color:white;
 
     display:flex;
-
     flex-direction:column;
-
-    justify-content:space-between;
 
     padding:25px 20px;
 
@@ -69,46 +67,22 @@ Sidebar
 
 .sidebar-header{
 
-    margin-bottom:40px;
+    margin-bottom:30px;
 
 }
 
-.logo{
+.sidebar-nav{
 
-    color:white;
+    flex:1;
 
-    text-decoration:none;
-
-    font-size:28px;
-
-    font-weight:700;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
-}
-
-.logo:hover{
-
-    color:white;
-
-}
-
-.logo i{
-
-    color:#3b82f6;
+    overflow-y:auto;
 
 }
 
 .sidebar-nav ul{
 
     list-style:none;
-
     padding:0;
-
     margin:0;
 
 }
@@ -122,9 +96,7 @@ Sidebar
 .sidebar-nav a{
 
     display:flex;
-
     align-items:center;
-
     gap:14px;
 
     text-decoration:none;
@@ -142,7 +114,6 @@ Sidebar
 .sidebar-nav a:hover{
 
     background:#1e293b;
-
     color:white;
 
 }
@@ -150,8 +121,17 @@ Sidebar
 .sidebar-nav a.active{
 
     background:#2563eb;
-
     color:white;
+
+}
+
+.sidebar-footer{
+
+    margin-top:auto;
+
+    padding-top:20px;
+
+    border-top:1px solid rgba(255,255,255,.08);
 
 }
 
@@ -170,7 +150,6 @@ Sidebar
     font-weight:600;
 
 }
-
 /* =====================================
 Top Navbar
 ===================================== */

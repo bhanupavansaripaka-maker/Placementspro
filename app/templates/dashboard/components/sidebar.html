@@ -1,5 +1,6 @@
 <aside class="sidebar">
 
+    <!-- Sidebar Header -->
     <div>
 
         <div class="sidebar-header">
@@ -14,12 +15,15 @@
 
         </div>
 
+        <!-- Navigation -->
         <nav class="sidebar-nav">
 
             <ul>
 
                 <li>
-                    <a href="/dashboard" class="active">
+                    <a
+                        href="/dashboard"
+                        class="{% if active_page == 'dashboard' %}active{% endif %}">
 
                         <i class="bi bi-grid-fill"></i>
 
@@ -29,7 +33,9 @@
                 </li>
 
                 <li>
-                    <a href="/courses">
+                    <a
+                        href="/courses"
+                        class="{% if active_page == 'courses' %}active{% endif %}">
 
                         <i class="bi bi-book-fill"></i>
 
@@ -39,7 +45,9 @@
                 </li>
 
                 <li>
-                    <a href="/my-courses">
+                    <a
+                        href="/my-courses"
+                        class="{% if active_page == 'my_courses' %}active{% endif %}">
 
                         <i class="bi bi-play-circle-fill"></i>
 
@@ -49,7 +57,9 @@
                 </li>
 
                 <li>
-                    <a href="/profile">
+                    <a
+                        href="/profile"
+                        class="{% if active_page == 'profile' %}active{% endif %}">
 
                         <i class="bi bi-person-fill"></i>
 
@@ -59,7 +69,9 @@
                 </li>
 
                 <li>
-                    <a href="/settings">
+                    <a
+                        href="/settings"
+                        class="{% if active_page == 'settings' %}active{% endif %}">
 
                         <i class="bi bi-gear-fill"></i>
 
@@ -74,9 +86,12 @@
 
     </div>
 
+    <!-- Sidebar Footer -->
     <div class="sidebar-footer">
 
-        <a href="/login" id="logoutBtn">
+        <a
+            href="#"
+            id="logoutBtn">
 
             <i class="bi bi-box-arrow-right"></i>
 

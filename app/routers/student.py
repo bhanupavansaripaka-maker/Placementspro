@@ -21,6 +21,7 @@ from app.models.user import User
 
 from app.schemas.student import (
     StudentProfileCreate,
+    StudentProfileUpdate,
     StudentProfileResponse
 )
 
@@ -31,59 +32,6 @@ router = APIRouter(
     prefix="/students",
     tags=["Students"]
 )
-
-
-# ==========================================================
-# Update Student Profile
-# ==========================================================
-
-@router.put(
-    "/profile",
-    response_model=StudentProfileResponse
-)
-def update_profile(
-    profile: StudentProfileCreate,
-    db: Session = Depends(get_db),
-    current_user: User = Depends(get_current_user)
-):
-    """
-    Create or update the logged-in student's profile.
-    """
-
-    try:
-
-        student = StudentService.update_profile(
-            db,
-            current_user,
-            profile
-        )
-
-        return StudentProfileResponse(
-            id=student.id,
-            full_name=current_user.full_name,
-            email=current_user.email,
-            phone=student.phone,
-            college=student.college,
-            education=student.education,
-            branch=student.branch,
-            graduation_year=student.graduation_year,
-            profile_photo=student.profile_photo,
-            resume=student.resume
-        )
-
-    except ValueError as e:
-
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=str(e)
-        )
-
-    except Exception:
-
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Something went wrong."
-        )
 
 
 # ==========================================================
@@ -126,3 +74,56 @@ def read_profile(
         profile_photo=student.profile_photo,
         resume=student.resume
     )
+
+
+# ==========================================================
+# Update Student Profile
+# ==========================================================
+
+@router.put(
+    "/profile",
+    response_model=StudentProfileResponse
+)
+def update_profile(
+    profile: StudentProfileUpdate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    """
+    Update logged-in student's profile.
+    """
+
+    try:
+
+        student = StudentService.update_profile(
+            db,
+            current_user,
+            profile
+        )
+
+        return StudentProfileResponse(
+            id=student.id,
+            full_name=current_user.full_name,
+            email=current_user.email,
+            phone=student.phone,
+            college=student.college,
+            education=student.education,
+            branch=student.branch,
+            graduation_year=student.graduation_year,
+            profile_photo=student.profile_photo,
+            resume=student.resume
+        )
+
+    except ValueError as e:
+
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(e)
+        )
+
+    except Exception:
+
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Something went wrong."
+        )

@@ -57,7 +57,9 @@
 
         <div class="hero-right">
 
-            <div class="profile-card">
+            <!-- Profile Completion -->
+
+            <div class="profile-card mb-4">
 
                 <h5>
 
@@ -68,6 +70,7 @@
                 <div class="progress mt-3">
 
                     <div
+                        id="profileProgressBar"
                         class="progress-bar bg-success"
                         role="progressbar"
                         style="width:70%;">
@@ -78,11 +81,44 @@
 
                 </div>
 
-                <small class="text-muted mt-3 d-block">
+                <small
+                    id="profileStatusMessage"
+                    class="text-muted mt-3 d-block">
 
                     Complete your profile to unlock all SkillForge features.
 
                 </small>
+
+            </div>
+
+            <!-- Continue Learning -->
+
+            <div class="profile-card">
+
+                <h5>
+
+                    Continue Learning
+
+                </h5>
+
+                <div id="continueLearningContainer">
+
+                    <div class="text-center py-3">
+
+                        <div
+                            class="spinner-border spinner-border-sm text-primary"
+                            role="status">
+                        </div>
+
+                        <p class="mt-2 mb-0">
+
+                            Loading your latest course...
+
+                        </p>
+
+                    </div>
+
+                </div>
 
             </div>
 

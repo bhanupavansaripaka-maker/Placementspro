@@ -1,0 +1,173 @@
+{% extends "layouts/dashboard_base.html" %}
+
+{% block title %}
+Student Profile | SkillForge LMS
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <!-- Page Header -->
+    <div class="mb-4">
+
+        <h2 class="fw-bold">
+            Student Profile
+        </h2>
+
+        <p class="text-muted">
+            View and update your personal information.
+        </p>
+
+    </div>
+
+    <div class="row">
+
+        <!-- Profile Card -->
+        <div class="col-lg-4 mb-4">
+
+            <div class="card shadow-sm border-0">
+
+                <div class="card-body text-center">
+
+                    <img
+                        id="profileImage"
+                        src="https://ui-avatars.com/api/?name=Student&background=2563eb&color=ffffff&size=180"
+                        class="rounded-circle mb-3"
+                        width="150"
+                        height="150"
+                        alt="Profile">
+
+                    <h4 id="profileName">
+
+                        Loading...
+
+                    </h4>
+
+                    <p
+                        id="profileEmail"
+                        class="text-muted">
+
+                        Loading...
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Profile Form -->
+        <div class="col-lg-8">
+
+            <div class="card shadow-sm border-0">
+
+                <div class="card-header bg-white">
+
+                    <h5 class="mb-0">
+                        Personal Information
+                    </h5>
+
+                </div>
+
+                <div class="card-body">
+
+                    <form id="profileForm">
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+                                    Phone Number
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="phone"
+                                    class="form-control">
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+                                    College
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="college"
+                                    class="form-control">
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+                                    Education
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="education"
+                                    class="form-control">
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+                                    Branch
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="branch"
+                                    class="form-control">
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+                                    Graduation Year
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="graduationYear"
+                                    class="form-control">
+
+                            </div>
+
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary">
+
+                            Save Changes
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{{ url_for('static', path='js/student/profile.js') }}"></script>
+
+{% endblock %}

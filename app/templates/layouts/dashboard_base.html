@@ -5,8 +5,9 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>
         {% block title %}
@@ -41,41 +42,54 @@
 
 <body>
 
-    <div class="dashboard-wrapper">
+<div class="dashboard-wrapper">
 
-        <!-- Sidebar -->
-        {% include "dashboard/components/sidebar.html" %}
+    <!-- Sidebar -->
+    {% include "dashboard/components/sidebar.html" %}
 
-        <!-- Main Content -->
-        <div class="main-content">
+    <!-- Main Content -->
+    <div class="main-content">
 
-            <!-- Dashboard Navbar -->
-            {% include "dashboard/components/navbar.html" %}
+        <!-- Navbar -->
+        {% include "dashboard/components/navbar.html" %}
 
-            <!-- Page Content -->
-            <main class="content-area">
+        <!-- Page Content -->
+        <main class="content-area">
 
-                {% block content %}
-                {% endblock %}
+            {% block content %}
+            {% endblock %}
 
-            </main>
-
-        </div>
+        </main>
 
     </div>
 
-    <!-- Bootstrap JS -->
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js">
-    </script>
+</div>
 
-    <!-- Dashboard JS -->
-    <script
-        src="{{ url_for('static', path='js/dashboard.js') }}">
-    </script>
+<!-- ==========================================================
+     Bootstrap
+=========================================================== -->
 
-    {% block scripts %}
-    {% endblock %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- ==========================================================
+     Shared JavaScript
+=========================================================== -->
+
+<!-- Authentication -->
+<script src="{{ url_for('static', path='js/dashboard/auth.js') }}"></script>
+
+<!-- Shared API -->
+<script src="{{ url_for('static', path='js/dashboard/api.js') }}"></script>
+
+<!-- Shared Navbar -->
+<script src="{{ url_for('static', path='js/dashboard/navbar.js') }}"></script>
+
+<!-- ==========================================================
+     Page Specific Scripts
+=========================================================== -->
+
+{% block scripts %}
+{% endblock %}
 
 </body>
 

@@ -85,3 +85,32 @@ def list_courses(
     """
 
     return CourseService.get_all(db)
+# ==========================================================
+# Get Course By ID
+# ==========================================================
+
+@router.get(
+    "/{course_id}",
+    response_model=CourseResponse
+)
+def get_course(
+    course_id: int,
+    db: Session = Depends(get_db)
+):
+    """
+    Return a single course.
+    """
+
+    course = CourseService.get_by_id(
+        db,
+        course_id
+    )
+
+    if course is None:
+
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Course not found."
+        )
+
+    return course

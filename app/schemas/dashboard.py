@@ -5,7 +5,7 @@ Dashboard Schemas
 ==========================================================
 """
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class DashboardStatistics(BaseModel):
@@ -17,3 +17,5 @@ class DashboardStatistics(BaseModel):
     available_courses: int
     categories: int
     profile_completed: bool
+
+    model_config = ConfigDict(from_attributes=True)

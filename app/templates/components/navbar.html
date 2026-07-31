@@ -2,9 +2,9 @@
 
     <div class="container navbar-container">
 
-        <!-- =========================
+        <!-- ==========================================================
              Logo
-        ========================== -->
+        =========================================================== -->
 
         <a href="/" class="logo">
 
@@ -15,65 +15,69 @@
 
         </a>
 
-        <!-- =========================
+        <!-- ==========================================================
              Navigation Menu
-        ========================== -->
+        =========================================================== -->
 
         <ul class="nav-menu">
 
             <li>
-                <a href="/"
-                   class="{% if active_page == 'home' %}active{% endif %}">
+                <a
+                    href="/"
+                    class="{% if active_page == 'home' %}active{% endif %}">
                     Home
                 </a>
             </li>
 
             <li>
-                <a href="/courses"
-                   class="{% if active_page == 'courses' %}active{% endif %}">
+                <a
+                    href="/courses"
+                    class="{% if active_page == 'courses' %}active{% endif %}">
                     Courses
                 </a>
             </li>
 
             <li>
-                <a href="/about"
-                   class="{% if active_page == 'about' %}active{% endif %}">
+                <a
+                    href="/about"
+                    class="{% if active_page == 'about' %}active{% endif %}">
                     About
                 </a>
             </li>
 
             <li>
-                <a href="/contact"
-                   class="{% if active_page == 'contact' %}active{% endif %}">
+                <a
+                    href="/contact"
+                    class="{% if active_page == 'contact' %}active{% endif %}">
                     Contact
                 </a>
             </li>
 
         </ul>
 
-        <!-- =========================
+        <!-- ==========================================================
              Right Buttons
-        ========================== -->
+        =========================================================== -->
 
         <div class="nav-buttons">
 
-            <a href="#" class="btn btn-outline">
-
+            <a
+                href="/login"
+                class="btn btn-outline {% if active_page == 'login' %}active{% endif %}">
                 Login
-
             </a>
 
-            <a href="#" class="btn btn-primary">
-
+            <a
+                href="/register"
+                class="btn btn-primary {% if active_page == 'register' %}active{% endif %}">
                 Enroll Now
-
             </a>
 
         </div>
 
-        <!-- =========================
+        <!-- ==========================================================
              Mobile Menu Button
-        ========================== -->
+        =========================================================== -->
 
         <button class="mobile-menu-btn">
 

@@ -11,6 +11,8 @@ from app.models.course import Course
 from app.models.enrollment import Enrollment
 from app.models.student import Student
 
+from app.schemas.dashboard import DashboardStatistics
+
 
 class DashboardService:
     """
@@ -21,9 +23,9 @@ class DashboardService:
     def get_statistics(
         db: Session,
         student_id: int
-    ) -> dict:
+    ) -> DashboardStatistics:
         """
-        Returns dashboard statistics.
+        Return dashboard statistics for a student.
         """
 
         # ----------------------------------------
@@ -45,7 +47,7 @@ class DashboardService:
         available_courses = (
             db.query(Course)
             .filter(
-                Course.is_active == True
+                Course.is_active.is_(True)
             )
             .count()
         )
@@ -74,9 +76,39 @@ class DashboardService:
 
         profile_completed = student is not None
 
-        return {
-            "enrolled_courses": enrolled_courses,
-            "available_courses": available_courses,
-            "categories": categories,
-            "profile_completed": profile_completed
-        }
+        return DashboardStatistics(
+            enrolled_courses=enrolled_courses,
+            available_courses=available_courses,
+            categories=categories,
+            profile_completed=profile_completed
+        )
+
+    # ======================================================
+    # Continue Learning
+    # ======================================================
+
+    @staticmethod
+    def get_continue_learning(
+        db: Session,
+        student_id: int
+    ):
+        """
+        Return the most recently enrolled course
+        for the given student.
+        """
+
+        enrollment = (
+            db.query(Enrollment)
+            .filter(
+                Enrollment.student_id == student_id
+            )
+            .order_by(
+                Enrollment.enrolled_at.desc()
+            )
+            .first()
+        )
+
+        if enrollment is None:
+            return None
+
+        return enrollment.course

@@ -1,54 +1,51 @@
 """
 ==========================================================
 SkillForge Platform
-Main Application
+Application Entry Point
 ==========================================================
 """
 
-from contextlib import asynccontextmanager
-
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 
-from app.core.init_db import init_db
-
-# ===========================
-# API Routers
-# ===========================
+from app.core.database import Base, engine
 
 from app.routers import (
+    home,
     auth,
+    auth_pages,
     student,
+    student_pages,
     course,
     enrollment,
-    web
+    dashboard,
+    contact
 )
 
-
 # ==========================================================
-# Application Lifespan
+# Create Database Tables
 # ==========================================================
 
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    """
-    Initialize database on application startup.
-    """
-    init_db()
-    yield
-
+Base.metadata.create_all(bind=engine)
 
 # ==========================================================
 # FastAPI Application
 # ==========================================================
 
 app = FastAPI(
-    title="SkillForge LMS API",
+    title="SkillForge LMS",
     description="Learning Management System built with FastAPI",
-    version="1.0.0",
-    lifespan=lifespan
+    version="1.0.0"
 )
 
+# ==========================================================
+# Templates
+# ==========================================================
+
+templates = Jinja2Templates(
+    directory="app/templates"
+)
 
 # ==========================================================
 # Static Files
@@ -60,34 +57,43 @@ app.mount(
     name="static"
 )
 
+# ==========================================================
+# Routers
+# ==========================================================
 
-# ==========================================================
-# API Routers
-# ==========================================================
+# -------------------------
+# Public Website
+# -------------------------
+
+app.include_router(home.router)
+app.include_router(contact.router)
+
+# -------------------------
+# HTML Pages
+# -------------------------
+
+app.include_router(auth_pages.router)
+app.include_router(student_pages.router)
+
+# -------------------------
+# JSON APIs
+# -------------------------
 
 app.include_router(auth.router)
 app.include_router(student.router)
 app.include_router(course.router)
 app.include_router(enrollment.router)
-
-
-# ==========================================================
-# Web Routes (HTML Pages)
-# ==========================================================
-
-app.include_router(web.router)
-
+app.include_router(dashboard.router)
 
 # ==========================================================
 # Health Check
 # ==========================================================
 
-@app.get("/health", tags=["Health"])
+@app.get("/health")
 def health():
-    """
-    Health Check Endpoint
-    """
+
     return {
-        "status": "success",
-        "message": "SkillForge LMS API is running."
+        "status": "OK",
+        "application": "SkillForge LMS",
+        "version": "1.0.0"
     }

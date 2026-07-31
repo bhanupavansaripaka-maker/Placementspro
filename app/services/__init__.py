@@ -1,3 +1,12 @@
-from .auth_service import register_user
-from .enrollment_service import enroll_student
-from .enrollment_service import get_student_courses
+"""
+==========================================================
+SkillForge Platform
+Services Package
+==========================================================
+"""
+
+from .auth_service import AuthService
+from .student_service import StudentService
+from .course_service import CourseService
+from .enrollment_service import EnrollmentService
+from .dashboard_service import DashboardService
