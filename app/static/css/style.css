@@ -2,7 +2,7 @@
    SkillForge Academy
    Main Stylesheet
    Version : 2.0
-   =========================================================== */
+=========================================================== */
 
 /* ==========================
    Base
@@ -27,6 +27,7 @@
 @import url("./components/buttons.css");
 @import url("./components/cards.css");
 @import url("./components/forms.css");
+@import url("./components/page_header.css");
 
 /* ==========================
    Pages
