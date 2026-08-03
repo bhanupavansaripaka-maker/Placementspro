@@ -1,0 +1,229 @@
+/*
+==========================================================
+SkillForge LMS
+Admin Design System
+Version : 1.0
+==========================================================
+*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f5f7fb;
+    color:#1e293b;
+}
+
+/* ==========================================
+   Layout
+========================================== */
+
+.admin-wrapper{
+    display:flex;
+    min-height:100vh;
+}
+
+.admin-main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
+.admin-content{
+    padding:35px;
+}
+
+/* ==========================================
+   Sidebar
+========================================== */
+
+.sidebar{
+    width:270px;
+    background:#0f172a;
+    color:white;
+    min-height:100vh;
+    position:sticky;
+    top:0;
+    left:0;
+}
+
+.logo{
+    padding:30px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo h3{
+    margin:0;
+    font-weight:700;
+}
+
+.logo span{
+    color:#94a3b8;
+    font-size:14px;
+}
+
+.sidebar ul{
+    list-style:none;
+    padding:20px 0;
+}
+
+.sidebar li{
+    margin:6px 12px;
+}
+
+.sidebar a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:#cbd5e1;
+    text-decoration:none;
+    padding:14px 18px;
+    border-radius:12px;
+    transition:.25s;
+    font-weight:500;
+}
+
+.sidebar a:hover{
+    background:#2563eb;
+    color:white;
+}
+
+.sidebar a i{
+    font-size:18px;
+}
+
+/* ==========================================
+   Navbar
+========================================== */
+
+.navbar{
+    height:75px;
+    background:white;
+    border-bottom:1px solid #e5e7eb;
+}
+
+/* ==========================================
+   Cards
+========================================== */
+
+.card{
+    border:none;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+/* ==========================================
+   Buttons
+========================================== */
+
+.btn-primary{
+    background:#2563eb;
+    border:none;
+    border-radius:10px;
+    padding:12px 22px;
+}
+
+.btn-primary:hover{
+    background:#1d4ed8;
+}
+
+/* ==========================================
+   Forms
+========================================== */
+
+.form-control,
+.form-select{
+    border-radius:10px;
+    padding:12px;
+    border:1px solid #dbe4f0;
+}
+
+.form-control:focus,
+.form-select:focus{
+    box-shadow:none;
+    border-color:#2563eb;
+}
+
+/* ==========================================
+   Headings
+========================================== */
+
+h2{
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+p{
+    color:#64748b;
+}
+/* ==========================================
+   Dashboard Cards
+========================================== */
+
+.dashboard-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+
+    transition:.3s;
+
+}
+
+.dashboard-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.card-icon{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:15px;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+}
+
+.dashboard-card h3{
+
+    margin:0;
+
+    font-size:30px;
+
+    font-weight:700;
+
+}
+
+.dashboard-card p{
+
+    margin:0;
+
+    color:#64748b;
+
+}

@@ -1,15 +1,16 @@
 """
 ==========================================================
 SkillForge Platform
-Course Model
+Module Model
 ==========================================================
 """
 
 from sqlalchemy import (
-    Boolean,
     Integer,
     String,
-    Text
+    Text,
+    Boolean,
+    ForeignKey
 )
 
 from sqlalchemy.orm import (
@@ -21,12 +22,12 @@ from sqlalchemy.orm import (
 from app.core.database import Base
 
 
-class Course(Base):
+class Module(Base):
     """
-    Course Database Model
+    Course Module Model
     """
 
-    __tablename__ = "courses"
+    __tablename__ = "modules"
 
     # ==================================================
     # Columns
@@ -38,6 +39,11 @@ class Course(Base):
         index=True
     )
 
+    course_id: Mapped[int] = mapped_column(
+        ForeignKey("courses.id"),
+        nullable=False
+    )
+
     title: Mapped[str] = mapped_column(
         String(200),
         nullable=False
@@ -45,28 +51,12 @@ class Course(Base):
 
     description: Mapped[str] = mapped_column(
         Text,
-        nullable=False
+        nullable=True
     )
 
-    category: Mapped[str] = mapped_column(
-        String(100),
-        nullable=False
-    )
-
-    level: Mapped[str] = mapped_column(
-        String(50),
-        nullable=False
-    )
-
-    duration: Mapped[int] = mapped_column(
+    display_order: Mapped[int] = mapped_column(
         Integer,
-        default=0,
-        nullable=False
-    )
-
-    price: Mapped[int] = mapped_column(
-        Integer,
-        default=0,
+        default=1,
         nullable=False
     )
 
@@ -80,17 +70,16 @@ class Course(Base):
     # Relationships
     # ==================================================
 
-    enrollments = relationship(
-        "Enrollment",
-        back_populates="course",
-        cascade="all, delete-orphan"
+    course = relationship(
+        "Course",
+        back_populates="modules"
     )
 
-    modules = relationship(
-        "Module",
-        back_populates="course",
+    lessons = relationship(
+        "Lesson",
+        back_populates="module",
         cascade="all, delete-orphan",
-        order_by="Module.display_order"
+        order_by="Lesson.display_order"
     )
 
     # ==================================================
@@ -99,7 +88,7 @@ class Course(Base):
 
     def __repr__(self):
         return (
-            f"<Course(id={self.id}, "
+            f"<Module(id={self.id}, "
             f"title='{self.title}', "
-            f"category='{self.category}')>"
+            f"course_id={self.course_id})>"
         )

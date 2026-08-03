@@ -1,0 +1,93 @@
+{% extends "admin/layouts/admin_base.html" %}
+
+{% block title %}
+Courses
+{% endblock %}
+
+{% block styles %}
+
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', path='css/admin/courses.css') }}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h2 class="fw-bold">
+                Course Management
+            </h2>
+
+            <p class="text-muted">
+                Manage AI and manually created courses.
+            </p>
+
+        </div>
+
+        <a
+            href="/admin/ai-course-builder"
+            class="btn btn-primary">
+
+            <i class="bi bi-stars"></i>
+
+            Generate Course
+
+        </a>
+
+    </div>
+
+    <div class="card shadow-sm">
+
+        <div class="card-body">
+
+            <table class="table table-hover align-middle">
+
+                <thead>
+
+                <tr>
+
+                    <th>Course</th>
+
+                    <th>Category</th>
+
+                    <th>Level</th>
+
+                    <th>Duration</th>
+
+                    <th>Status</th>
+
+                    <th width="180">
+
+                        Actions
+
+                    </th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="courseTableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{{ url_for('static', path='js/admin/courses.js') }}"></script>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+.page-header{
+
+    text-align:center;
+
+}
+
+.page-header h2{
+
+    font-size:38px;
+
+    font-weight:700;
+
+}
+
+#curriculumResult .card{
+
+    border-left:5px solid #2563eb;
+
+    margin-bottom:25px;
+
+}
+
+.lesson-item{
+
+    padding:10px 15px;
+
+    background:#f8fafc;
+
+    border-radius:8px;
+
+    margin-bottom:8px;
+
+}

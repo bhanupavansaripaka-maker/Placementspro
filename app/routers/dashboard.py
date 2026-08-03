@@ -53,6 +53,28 @@ def dashboard_page(request: Request):
 
 
 # ==========================================================
+# AI Course Builder Page
+# ==========================================================
+
+@router.get(
+    "/dashboard/ai-course-builder",
+    response_class=HTMLResponse
+)
+def ai_course_builder_page(request: Request):
+    """
+    Render AI Course Builder page.
+    """
+
+    return templates.TemplateResponse(
+        "dashboard/ai_course_builder.html",
+        {
+            "request": request,
+            "active_page": "ai-course-builder"
+        }
+    )
+
+
+# ==========================================================
 # Dashboard Statistics API
 # ==========================================================
 

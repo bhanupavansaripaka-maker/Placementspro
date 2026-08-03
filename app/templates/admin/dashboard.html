@@ -1,0 +1,279 @@
+{% extends "admin/layouts/admin_base.html" %}
+
+{% block title %}
+Admin Dashboard
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <!-- ==========================================================
+         Page Header
+    =========================================================== -->
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h2 class="fw-bold mb-1">
+                Welcome Back 👋
+            </h2>
+
+            <p class="text-muted mb-0">
+                Manage SkillForge using AI-powered tools.
+            </p>
+
+        </div>
+
+        <a
+            href="/admin/ai-course-builder"
+            class="btn btn-primary">
+
+            <i class="bi bi-stars"></i>
+
+            AI Content Studio
+
+        </a>
+
+    </div>
+
+    <!-- ==========================================================
+         Statistics
+    =========================================================== -->
+
+    <div class="row g-4 mb-4">
+
+        <!-- Students -->
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="dashboard-card">
+
+                <div class="card-icon bg-primary">
+
+                    <i class="bi bi-people-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <h3 id="studentCount">
+                        0
+                    </h3>
+
+                    <p>
+                        Total Students
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Courses -->
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="dashboard-card">
+
+                <div class="card-icon bg-success">
+
+                    <i class="bi bi-book-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <h3 id="courseCount">
+                        0
+                    </h3>
+
+                    <p>
+                        Total Courses
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Enrollments -->
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="dashboard-card">
+
+                <div class="card-icon bg-warning">
+
+                    <i class="bi bi-mortarboard-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <h3 id="enrollmentCount">
+                        0
+                    </h3>
+
+                    <p>
+                        Enrollments
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- AI Generated -->
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="dashboard-card">
+
+                <div class="card-icon bg-danger">
+
+                    <i class="bi bi-stars"></i>
+
+                </div>
+
+                <div>
+
+                    <h3 id="aiCount">
+                        0
+                    </h3>
+
+                    <p>
+                        AI Generated Courses
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ==========================================================
+         Dashboard Content
+    =========================================================== -->
+
+    <div class="row g-4">
+
+        <!-- Recent Activity -->
+
+        <div class="col-lg-8">
+
+            <div class="card">
+
+                <div class="card-body">
+
+                    <h5 class="fw-bold mb-4">
+
+                        <i class="bi bi-clock-history"></i>
+
+                        Recent Activity
+
+                    </h5>
+
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">
+
+                            👨 New student enrolled
+
+                        </li>
+
+                        <li class="list-group-item">
+
+                            🤖 AI curriculum generated
+
+                        </li>
+
+                        <li class="list-group-item">
+
+                            📚 Course published
+
+                        </li>
+
+                        <li class="list-group-item">
+
+                            📝 Quiz generated
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Quick Actions -->
+
+        <div class="col-lg-4">
+
+            <div class="card">
+
+                <div class="card-body">
+
+                    <h5 class="fw-bold mb-4">
+
+                        <i class="bi bi-lightning-charge-fill"></i>
+
+                        Quick Actions
+
+                    </h5>
+
+                    <div class="d-grid gap-3">
+
+                        <a
+                            href="/admin/ai-course-builder"
+                            class="btn btn-primary">
+
+                            🤖 AI Content Studio
+
+                        </a>
+
+                        <button class="btn btn-outline-primary">
+
+                            ➕ Create Course
+
+                        </button>
+
+                        <button class="btn btn-outline-success">
+
+                            👨 Manage Students
+
+                        </button>
+
+                        <button class="btn btn-outline-dark">
+
+                            📊 View Reports
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{{ url_for('static', path='js/admin/dashboard.js') }}"></script>
+
+{% endblock %}

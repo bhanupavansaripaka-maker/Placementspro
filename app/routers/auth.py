@@ -111,14 +111,17 @@ def login(
             detail=str(e)
         )
 
-    except Exception:
+    except Exception as e:
+
+        print("\n================ LOGIN ERROR ================\n")
+        import traceback
+        traceback.print_exc()
+        print("\n=============================================\n")
 
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Something went wrong."
+            detail=str(e)
         )
-
-
 # ==========================================================
 # Current User
 # ==========================================================

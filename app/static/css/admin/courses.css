@@ -1,0 +1,27 @@
+.table td{
+
+    vertical-align: middle;
+
+}
+
+.status-badge{
+
+    padding:6px 12px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+}
+
+.status-draft{
+
+    background:#fff3cd;
+
+}
+
+.status-active{
+
+    background:#d1e7dd;
+
+}

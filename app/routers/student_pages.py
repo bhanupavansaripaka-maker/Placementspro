@@ -75,6 +75,27 @@ async def profile_page(request: Request):
 # Course Details Page
 # ==========================================================
 
+@router.get("/course/{course_id}")
+async def course_details_page(
+    request: Request,
+    course_id: int
+):
+    """
+    Student Course Details Page
+    """
+
+    return templates.TemplateResponse(
+        "student/course_details.html",
+        {
+            "request": request,
+            "active_page": "my_courses",
+            "course_id": course_id
+        }
+    )
+# ==========================================================
+# Course Details Page
+# ==========================================================
+
 @router.get(
     "/course/{course_id}",
     response_class=HTMLResponse

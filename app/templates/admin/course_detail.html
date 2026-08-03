@@ -1,0 +1,196 @@
+{% extends "admin/layouts/admin_base.html" %}
+
+{% block title %}
+Course Details
+{% endblock %}
+
+{% block styles %}
+
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', path='css/admin/course_detail.css') }}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <!-- Course Details -->
+    <div id="courseContainer"></div>
+
+</div>
+
+<!-- =======================================================
+Edit Course Modal
+======================================================= -->
+
+<div
+    class="modal fade"
+    id="editCourseModal"
+    tabindex="-1">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+
+                    Edit Course
+
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+
+                            Title
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="courseTitle"
+                            class="form-control">
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+
+                            Category
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="courseCategory"
+                            class="form-control">
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+
+                            Level
+
+                        </label>
+
+                        <select
+                            id="courseLevel"
+                            class="form-select">
+
+                            <option>Beginner</option>
+                            <option>Intermediate</option>
+                            <option>Advanced</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+
+                        <label class="form-label">
+
+                            Duration
+
+                        </label>
+
+                        <input
+                            type="number"
+                            id="courseDuration"
+                            class="form-control">
+
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+
+                        <label class="form-label">
+
+                            Price
+
+                        </label>
+
+                        <input
+                            type="number"
+                            id="coursePrice"
+                            class="form-control">
+
+                    </div>
+
+                    <div class="col-12">
+
+                        <label class="form-label">
+
+                            Description
+
+                        </label>
+
+                        <textarea
+                            id="courseDescription"
+                            rows="5"
+                            class="form-control"></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+
+                    Cancel
+
+                </button>
+
+                <button
+                    id="saveCourseBtn"
+                    class="btn btn-primary">
+
+                    Save Changes
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+
+const COURSE_ID = {{ course_id }};
+
+</script>
+
+<script
+src="{{ url_for('static', path='js/admin/course_detail.js') }}">
+</script>
+
+{% endblock %}

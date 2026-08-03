@@ -1,0 +1,171 @@
+{% extends "admin/layouts/admin_base.html" %}
+
+{% block title %}
+AI Content Studio
+{% endblock %}
+
+{% block styles %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', path='css/admin/ai_course_builder.css') }}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <!-- Header -->
+
+    <div class="page-header mb-5">
+
+        <span class="badge bg-primary">
+
+            🤖 AI Powered
+
+        </span>
+
+        <h2 class="mt-3 fw-bold">
+
+            AI Content Studio
+
+        </h2>
+
+        <p class="text-muted">
+
+            Generate complete professional technical courses using AI.
+
+        </p>
+
+    </div>
+
+    <!-- Generator -->
+
+    <div class="card shadow-sm">
+
+        <div class="card-body p-4">
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">
+
+                        Course Name
+
+                    </label>
+
+                    <input
+                        id="courseName"
+                        class="form-control"
+                        placeholder="Python Full Stack Development">
+
+                </div>
+
+                <div class="col-md-3 mb-3">
+
+                    <label class="form-label">
+
+                        Difficulty
+
+                    </label>
+
+                    <select
+                        id="difficulty"
+                        class="form-select">
+
+                        <option>Beginner</option>
+                        <option>Intermediate</option>
+                        <option>Advanced</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-3 mb-3">
+
+                    <label class="form-label">
+
+                        Duration
+
+                    </label>
+
+                    <select
+                        id="duration"
+                        class="form-select">
+
+                        <option>1 Month</option>
+                        <option selected>3 Months</option>
+                        <option>6 Months</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="mb-4">
+
+                <label class="form-label">
+
+                    Target Audience
+
+                </label>
+
+                <input
+                    id="audience"
+                    class="form-control"
+                    placeholder="Freshers">
+
+            </div>
+
+            <button
+                id="generateBtn"
+                class="btn btn-primary btn-lg">
+
+                <i class="bi bi-stars"></i>
+
+                Generate Curriculum
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Loading -->
+
+    <div
+        id="loadingArea"
+        class="text-center mt-5"
+        style="display:none;">
+
+        <div class="spinner-border text-primary">
+
+        </div>
+
+        <h5 class="mt-3">
+
+            AI is creating your curriculum...
+
+        </h5>
+
+    </div>
+
+    <!-- Result -->
+
+    <div
+        id="curriculumResult"
+        class="mt-5">
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{{ url_for('static', path='js/admin/ai_course_builder.js') }}"></script>
+
+{% endblock %}

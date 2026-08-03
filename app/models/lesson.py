@@ -1,15 +1,15 @@
 """
 ==========================================================
 SkillForge Platform
-Course Model
+Lesson Model
 ==========================================================
 """
 
 from sqlalchemy import (
-    Boolean,
     Integer,
     String,
-    Text
+    Boolean,
+    ForeignKey
 )
 
 from sqlalchemy.orm import (
@@ -21,12 +21,12 @@ from sqlalchemy.orm import (
 from app.core.database import Base
 
 
-class Course(Base):
+class Lesson(Base):
     """
-    Course Database Model
+    Lesson Database Model
     """
 
-    __tablename__ = "courses"
+    __tablename__ = "lessons"
 
     # ==================================================
     # Columns
@@ -38,35 +38,41 @@ class Course(Base):
         index=True
     )
 
+    module_id: Mapped[int] = mapped_column(
+        ForeignKey("modules.id"),
+        nullable=False
+    )
+
     title: Mapped[str] = mapped_column(
         String(200),
         nullable=False
     )
 
-    description: Mapped[str] = mapped_column(
-        Text,
+    topic: Mapped[str] = mapped_column(
+        String(300),
         nullable=False
     )
 
-    category: Mapped[str] = mapped_column(
-        String(100),
+    keywords: Mapped[str] = mapped_column(
+        String(500),
+        nullable=True
+    )
+
+    difficulty: Mapped[str] = mapped_column(
+        String(30),
+        default="Beginner",
         nullable=False
     )
 
-    level: Mapped[str] = mapped_column(
-        String(50),
-        nullable=False
-    )
-
-    duration: Mapped[int] = mapped_column(
+    estimated_minutes: Mapped[int] = mapped_column(
         Integer,
-        default=0,
+        default=15,
         nullable=False
     )
 
-    price: Mapped[int] = mapped_column(
+    display_order: Mapped[int] = mapped_column(
         Integer,
-        default=0,
+        default=1,
         nullable=False
     )
 
@@ -80,26 +86,14 @@ class Course(Base):
     # Relationships
     # ==================================================
 
-    enrollments = relationship(
-        "Enrollment",
-        back_populates="course",
-        cascade="all, delete-orphan"
-    )
-
-    modules = relationship(
+    module = relationship(
         "Module",
-        back_populates="course",
-        cascade="all, delete-orphan",
-        order_by="Module.display_order"
+        back_populates="lessons"
     )
-
-    # ==================================================
-    # String Representation
-    # ==================================================
 
     def __repr__(self):
+
         return (
-            f"<Course(id={self.id}, "
-            f"title='{self.title}', "
-            f"category='{self.category}')>"
+            f"<Lesson(id={self.id}, "
+            f"title='{self.title}')>"
         )

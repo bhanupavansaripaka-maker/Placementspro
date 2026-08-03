@@ -11,6 +11,21 @@ from fastapi.templating import Jinja2Templates
 
 from app.core.database import Base, engine
 
+# ==========================================================
+# Register SQLAlchemy Models
+# ==========================================================
+
+from app.models.user import User
+from app.models.student import Student
+from app.models.course import Course
+from app.models.enrollment import Enrollment
+from app.models.module import Module
+from app.models.lesson import Lesson
+
+# ==========================================================
+# Routers
+# ==========================================================
+
 from app.routers import (
     home,
     auth,
@@ -20,7 +35,9 @@ from app.routers import (
     course,
     enrollment,
     dashboard,
-    contact
+    contact,
+    ai,
+    admin
 )
 
 # ==========================================================
@@ -58,32 +75,40 @@ app.mount(
 )
 
 # ==========================================================
-# Routers
+# Public Website Routers
 # ==========================================================
-
-# -------------------------
-# Public Website
-# -------------------------
 
 app.include_router(home.router)
 app.include_router(contact.router)
 
-# -------------------------
+# ==========================================================
 # HTML Pages
-# -------------------------
+# ==========================================================
 
 app.include_router(auth_pages.router)
 app.include_router(student_pages.router)
 
-# -------------------------
-# JSON APIs
-# -------------------------
+# ==========================================================
+# Student APIs
+# ==========================================================
 
 app.include_router(auth.router)
 app.include_router(student.router)
 app.include_router(course.router)
 app.include_router(enrollment.router)
 app.include_router(dashboard.router)
+
+# ==========================================================
+# AI APIs
+# ==========================================================
+
+app.include_router(ai.router)
+
+# ==========================================================
+# Admin Portal
+# ==========================================================
+
+app.include_router(admin.router)
 
 # ==========================================================
 # Health Check

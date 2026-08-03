@@ -1,0 +1,123 @@
+{% extends "layouts/dashboard_base.html" %}
+
+{% block title %}
+AI Course Builder | SkillForge LMS
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="mb-4">
+
+        <h2 class="fw-bold">
+            🤖 AI Course Builder
+        </h2>
+
+        <p class="text-muted">
+            Generate a complete professional curriculum using AI.
+        </p>
+
+    </div>
+
+    <div class="card shadow-sm border-0">
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">
+                        Course Name
+                    </label>
+
+                    <input
+                        id="courseName"
+                        class="form-control"
+                        placeholder="Python Full Stack Development">
+
+                </div>
+
+                <div class="col-md-3 mb-3">
+
+                    <label class="form-label">
+                        Difficulty
+                    </label>
+
+                    <select
+                        id="difficulty"
+                        class="form-select">
+
+                        <option>Beginner</option>
+                        <option>Intermediate</option>
+                        <option>Advanced</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-3 mb-3">
+
+                    <label class="form-label">
+                        Duration
+                    </label>
+
+                    <select
+                        id="duration"
+                        class="form-select">
+
+                        <option>1 Month</option>
+                        <option selected>3 Months</option>
+                        <option>6 Months</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="mb-4">
+
+                <label class="form-label">
+
+                    Target Audience
+
+                </label>
+
+                <input
+                    id="audience"
+                    class="form-control"
+                    placeholder="Freshers">
+
+            </div>
+
+            <button
+                id="generateBtn"
+                class="btn btn-primary">
+
+                <i class="bi bi-stars"></i>
+
+                Generate Curriculum
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div
+        id="curriculumResult"
+        class="mt-4">
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{{ url_for('static', path='js/dashboard/ai_course_builder.js') }}"></script>
+
+{% endblock %}
