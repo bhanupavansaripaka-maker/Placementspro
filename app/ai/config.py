@@ -78,4 +78,4 @@ class AIConfig:
 
     TEMPERATURE = 0.7
 
-    MAX_TOKENS = 4000
+    MAX_TOKENS = 12000

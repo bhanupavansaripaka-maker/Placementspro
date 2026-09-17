@@ -93,7 +93,22 @@ class Student(Base):
         cascade="all, delete-orphan"
     )
 
+    # --------------------------------------------------
+    # Quiz Attempts
+    # --------------------------------------------------
+
+    quiz_attempts = relationship(
+        "QuizAttempt",
+        back_populates="student",
+        cascade="all, delete-orphan"
+    )
+
+    # ==================================================
+    # Representation
+    # ==================================================
+
     def __repr__(self):
+
         return (
             f"<Student(id={self.id}, "
             f"user_id={self.user_id})>"

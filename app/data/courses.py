@@ -1,6 +1,6 @@
 """
 ==========================================================
-SkillForge Academy
+PlacementsPro
 Courses Data
 ==========================================================
 """
@@ -35,6 +35,7 @@ courses = [
         "icon": "☁️"
     }
 ]
+
 
 # Homepage uses featured courses
 FEATURED_COURSES = courses

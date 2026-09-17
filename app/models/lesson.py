@@ -1,7 +1,7 @@
 """
 ==========================================================
-SkillForge Platform
-Lesson Model
+SkillForge LMS
+Lesson Database Model
 ==========================================================
 """
 
@@ -91,9 +91,37 @@ class Lesson(Base):
         back_populates="lessons"
     )
 
+    # ==================================================
+    # AI Lesson Content
+    # ==================================================
+
+    content = relationship(
+        "LessonContent",
+        back_populates="lesson",
+        uselist=False,
+        cascade="all, delete-orphan"
+    )
+
+    # ==================================================
+    # AI Quiz
+    # ==================================================
+
+    quiz = relationship(
+        "Quiz",
+        back_populates="lesson",
+        uselist=False,
+        cascade="all, delete-orphan"
+    )
+
+    # ==================================================
+    # Representation
+    # ==================================================
+
     def __repr__(self):
 
         return (
-            f"<Lesson(id={self.id}, "
-            f"title='{self.title}')>"
+            f"<Lesson("
+            f"id={self.id}, "
+            f"title='{self.title}'"
+            f")>"
         )

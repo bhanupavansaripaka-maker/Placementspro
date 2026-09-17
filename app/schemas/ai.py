@@ -5,8 +5,6 @@ AI Schemas
 ==========================================================
 """
 
-from typing import Any
-
 from pydantic import BaseModel
 
 
@@ -26,6 +24,47 @@ class CurriculumGenerateRequest(BaseModel):
 
 
 # ==========================================================
+# AI Generated Lesson
+# ==========================================================
+
+class AILesson(BaseModel):
+
+    title: str
+
+    topic: str
+
+    keywords: list[str]
+
+    difficulty: str
+
+    estimated_minutes: int
+
+
+# ==========================================================
+# AI Generated Module
+# ==========================================================
+
+class AIModule(BaseModel):
+
+    title: str
+
+    description: str
+
+    lessons: list[AILesson]
+
+
+# ==========================================================
+# AI Generated Curriculum
+# ==========================================================
+
+class AICurriculum(BaseModel):
+
+    course: str
+
+    modules: list[AIModule]
+
+
+# ==========================================================
 # Generate Curriculum Response
 # ==========================================================
 
@@ -33,7 +72,7 @@ class CurriculumGenerateResponse(BaseModel):
 
     course: str
 
-    modules: list[dict[str, Any]]
+    modules: list[AIModule]
 
 
 # ==========================================================
@@ -42,7 +81,7 @@ class CurriculumGenerateResponse(BaseModel):
 
 class CurriculumSaveRequest(BaseModel):
 
-    curriculum: dict[str, Any]
+    curriculum: AICurriculum
 
     difficulty: str
 

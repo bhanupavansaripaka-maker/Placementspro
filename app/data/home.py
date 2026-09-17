@@ -1,5 +1,5 @@
 # ==========================================================
-# SkillForge Academy
+# PlacementsPro
 # Home Page Data
 # ==========================================================
 
@@ -25,8 +25,10 @@ HOME_STATISTICS = [
         "icon": "🏢"
     }
 ]
+
+
 # ==========================================================
-# Why Choose SkillForge
+# Why Choose PlacementsPro
 # ==========================================================
 
 WHY_CHOOSE = [
@@ -74,6 +76,8 @@ WHY_CHOOSE = [
     }
 
 ]
+
+
 # ==========================================================
 # Call To Action
 # ==========================================================
@@ -83,7 +87,7 @@ CALL_TO_ACTION = {
     "title": "Ready to Launch Your Tech Career?",
 
     "subtitle":
-        "Join SkillForge Academy and gain industry-ready skills through expert mentorship, real-world projects, AI interview practice and placement assistance.",
+        "Join PlacementsPro and gain industry-ready skills through expert mentorship, real-world projects, AI interview practice and placement assistance.",
 
     "primary_button": "Enroll Now",
 

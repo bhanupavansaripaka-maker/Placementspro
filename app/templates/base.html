@@ -9,55 +9,73 @@
           content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-          content="SkillForge Academy - Learn Today. Lead Tomorrow.">
+          content="PlacementsPro - Learn Today. Lead Tomorrow.">
 
     <meta name="keywords"
-          content="Python, Java, AI, Cloud, Full Stack, Data Science, SkillForge Academy">
+          content="Python, Java, AI, Cloud, Full Stack, Data Science, PlacementsPro">
 
     <meta name="author"
-          content="SkillForge Academy">
+          content="PlacementsPro">
 
     <title>
 
         {% block title %}
 
-        SkillForge Academy
+        PlacementsPro
 
         {% endblock %}
 
     </title>
 
+
     <!-- ==========================================================
          Favicon
     =========================================================== -->
 
-    <link rel="icon"
-          type="image/x-icon"
-          href="{{ url_for('static', path='images/logo/favicon.ico') }}">
+    <link
+        rel="icon"
+        type="image/x-icon"
+        href="{{ url_for('static', path='images/logo/favicon.ico') }}">
+
 
     <!-- ==========================================================
          Bootstrap Icons
     =========================================================== -->
 
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 
     <!-- ==========================================================
          Main Stylesheet
     =========================================================== -->
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', path='css/style.css') }}">
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='css/style.css') }}">
+
+
+    <!-- ==========================================================
+         Page Specific Styles
+    =========================================================== -->
+
+    {% block styles %}
+
+    {% endblock %}
 
 </head>
 
+
 <body>
+
 
     <!-- ==========================================================
          Navigation
     =========================================================== -->
 
     {% include "components/navbar.html" %}
+
 
     <!-- ==========================================================
          Main Content
@@ -71,17 +89,31 @@
 
     </main>
 
+
     <!-- ==========================================================
          Footer
     =========================================================== -->
 
     {% include "components/footer.html" %}
 
+
     <!-- ==========================================================
-         JavaScript
+         Global JavaScript
     =========================================================== -->
 
-    <script src="{{ url_for('static', path='js/app.js') }}"></script>
+    <script
+        src="{{ url_for('static', path='js/app.js') }}">
+    </script>
+
+
+    <!-- ==========================================================
+         Page Specific JavaScript
+    =========================================================== -->
+
+    {% block scripts %}
+
+    {% endblock %}
+
 
 </body>
 

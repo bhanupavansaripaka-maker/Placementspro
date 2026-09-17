@@ -40,3 +40,23 @@ class UpdateCourseRequest(BaseModel):
     duration: int
 
     price: int
+
+
+# ==========================================================
+# Create Module Request
+# ==========================================================
+
+class CreateModuleRequest(BaseModel):
+
+    title: str
+
+    description: str | None = None
+# ==========================================================
+# Update Module Request
+# ==========================================================
+
+class UpdateModuleRequest(BaseModel):
+
+    title: str
+
+    description: str | None = None

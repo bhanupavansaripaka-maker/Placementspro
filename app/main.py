@@ -1,68 +1,74 @@
 """
 ==========================================================
-SkillForge Platform
+PlacementsPro
 Application Entry Point
 ==========================================================
 """
 
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
 
 from app.core.database import Base, engine
 
+
 # ==========================================================
-# Register SQLAlchemy Models
+# Import Models
 # ==========================================================
 
-from app.models.user import User
-from app.models.student import Student
 from app.models.course import Course
-from app.models.enrollment import Enrollment
 from app.models.module import Module
 from app.models.lesson import Lesson
+from app.models.lesson_content import LessonContent
+from app.models.quiz import Quiz, QuizQuestion
+from app.models.quiz_attempt import QuizAttempt
+
 
 # ==========================================================
-# Routers
+# Import Routers
 # ==========================================================
 
-from app.routers import (
-    home,
-    auth,
-    auth_pages,
-    student,
-    student_pages,
-    course,
-    enrollment,
-    dashboard,
-    contact,
-    ai,
-    admin
+from app.routers.admin import router as admin_router
+from app.routers.ai import router as ai_router
+
+from app.routers.auth import router as auth_router
+from app.routers.auth_pages import router as auth_pages_router
+
+from app.routers.contact import router as contact_router
+from app.routers.course import router as course_router
+from app.routers.courses import router as courses_router
+
+from app.routers.dashboard import router as dashboard_router
+from app.routers.enrollment import router as enrollment_router
+from app.routers.home import router as home_router
+
+from app.routers.student import router as student_router
+from app.routers.student_pages import (
+    router as student_pages_router
 )
+
+from app.routers.learning import router as learning_router
+from app.routers.quiz import router as quiz_router
+
 
 # ==========================================================
 # Create Database Tables
 # ==========================================================
 
-Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(
+    bind=engine
+)
+
 
 # ==========================================================
-# FastAPI Application
+# Create FastAPI Application
 # ==========================================================
 
 app = FastAPI(
-    title="SkillForge LMS",
-    description="Learning Management System built with FastAPI",
+    title="PlacementsPro",
+    description="AI Powered Learning Management System",
     version="1.0.0"
 )
 
-# ==========================================================
-# Templates
-# ==========================================================
-
-templates = Jinja2Templates(
-    directory="app/templates"
-)
 
 # ==========================================================
 # Static Files
@@ -70,55 +76,55 @@ templates = Jinja2Templates(
 
 app.mount(
     "/static",
-    StaticFiles(directory="app/static"),
+    StaticFiles(
+        directory="app/static"
+    ),
     name="static"
 )
 
-# ==========================================================
-# Public Website Routers
-# ==========================================================
-
-app.include_router(home.router)
-app.include_router(contact.router)
 
 # ==========================================================
-# HTML Pages
+# Register Routers
 # ==========================================================
 
-app.include_router(auth_pages.router)
-app.include_router(student_pages.router)
+app.include_router(home_router)
+
+app.include_router(auth_router)
+app.include_router(auth_pages_router)
+
+app.include_router(contact_router)
+
+app.include_router(course_router)
+app.include_router(courses_router)
+
+app.include_router(dashboard_router)
+
+app.include_router(enrollment_router)
+
+app.include_router(student_router)
+app.include_router(student_pages_router)
+
+app.include_router(learning_router)
+
+app.include_router(quiz_router)
+
+app.include_router(ai_router)
+
+app.include_router(admin_router)
+
 
 # ==========================================================
-# Student APIs
+# Root Health Check
 # ==========================================================
 
-app.include_router(auth.router)
-app.include_router(student.router)
-app.include_router(course.router)
-app.include_router(enrollment.router)
-app.include_router(dashboard.router)
-
-# ==========================================================
-# AI APIs
-# ==========================================================
-
-app.include_router(ai.router)
-
-# ==========================================================
-# Admin Portal
-# ==========================================================
-
-app.include_router(admin.router)
-
-# ==========================================================
-# Health Check
-# ==========================================================
-
-@app.get("/health")
-def health():
+@app.get(
+    "/health",
+    tags=["System"]
+)
+def health_check():
 
     return {
-        "status": "OK",
-        "application": "SkillForge LMS",
+        "status": "healthy",
+        "application": "PlacementsPro",
         "version": "1.0.0"
     }

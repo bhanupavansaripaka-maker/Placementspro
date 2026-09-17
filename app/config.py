@@ -1,23 +1,20 @@
 """
-Application Configuration
-"""
-APP_NAME = "SkillForge LMS"
-APP_DESCRIPTION = "Learning Management System"
-VERSION = "1.0.0"
-HOST = "127.0.0.1"
-PORT = 8000
-
-"""
 ==========================================================
+PlacementsPro
 Application Configuration
 ==========================================================
 """
 
-APP_NAME = "SkillForge Platform"
+APP_NAME = "PlacementsPro"
 
 APP_DESCRIPTION = "Learn Today. Lead Tomorrow."
 
 VERSION = "0.3.0"
+
+HOST = "127.0.0.1"
+
+PORT = 8000
+
 
 # ==========================================================
 # JWT Configuration

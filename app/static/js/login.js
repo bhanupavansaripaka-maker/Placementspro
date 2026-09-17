@@ -29,7 +29,7 @@ loginForm.addEventListener("submit", async (event) => {
 
             body: JSON.stringify({
                 email,
-                password
+                password 
             })
 
         });

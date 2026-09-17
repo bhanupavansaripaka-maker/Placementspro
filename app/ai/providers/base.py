@@ -13,6 +13,11 @@ class BaseAIProvider(ABC):
     Base class for every AI provider.
     """
 
+
+    # ======================================================
+    # Generate Curriculum
+    # ======================================================
+
     @abstractmethod
     def generate_curriculum(
         self,
@@ -22,30 +27,58 @@ class BaseAIProvider(ABC):
         target_audience: str
     ):
         """
-        Generate curriculum.
+        Generate course curriculum.
         """
+
         pass
+
+
+    # ======================================================
+    # Generate Lesson Content
+    # ======================================================
 
     @abstractmethod
     def generate_lesson(
         self,
+        course_name: str,
+        module_title: str,
         lesson_title: str,
-        difficulty: str
+        topic: str,
+        difficulty: str,
+        target_audience: str = "Engineering Students"
     ):
         """
-        Generate lesson content.
+        Generate AI lesson content.
         """
+
         pass
+
+
+    # ======================================================
+    # Generate Quiz
+    # ======================================================
 
     @abstractmethod
     def generate_quiz(
         self,
-        lesson_title: str
+        course_name: str,
+        module_title: str,
+        lesson_title: str,
+        topic: str,
+        difficulty: str,
+        number_of_questions: int = 10,
+        target_audience: str = "Engineering Students"
     ):
         """
-        Generate quiz.
+        Generate AI quiz.
         """
+
         pass
+
+
+    # ======================================================
+    # Generate Coding Questions
+    # ======================================================
 
     @abstractmethod
     def generate_coding_questions(
@@ -55,7 +88,13 @@ class BaseAIProvider(ABC):
         """
         Generate coding questions.
         """
+
         pass
+
+
+    # ======================================================
+    # AI Tutor Chat
+    # ======================================================
 
     @abstractmethod
     def chat(
@@ -66,4 +105,5 @@ class BaseAIProvider(ABC):
         """
         AI tutor chat.
         """
+
         pass
